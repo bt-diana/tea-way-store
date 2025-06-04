@@ -1,6 +1,7 @@
 {
   "name": "tea-way",
   "description": "online store website",
+  "private": "true",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -23,7 +24,6 @@
     "responsive-website"
   ],
   "author": "Butiakova Diana <butyakova01@gmail.com> (https://github.com/bt-diana)",
-  "license": "MIT",
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
