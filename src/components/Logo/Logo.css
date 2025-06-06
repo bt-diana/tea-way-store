@@ -1,0 +1,20 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@font-face {
+  font-family: chow-fun;
+  src: url('../../assets/fonts/chow_fun/CHOWFUN_.TTF');
+}
+
+.logo-title {
+  font-family: chow-fun;
+  color: var(--logo-text);
+}
+
+.logo-img {
+  aspect-ratio: 1;
+  height: 50px;
+}
