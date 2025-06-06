@@ -1,9 +1,7 @@
-import './App.css'
+import './App.css';
+import Navigation from './components/Navigation/Navigation';
+const App = () => {
+  return <Navigation />;
+};
 
-function App() {
-  return (
-    <div>Tea Way</div>
-  )
-}
-
-export default App
+export default App;
