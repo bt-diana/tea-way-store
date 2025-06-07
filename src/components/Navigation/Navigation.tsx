@@ -7,12 +7,15 @@ import Logo from '../Logo/Logo';
 const Navigation = () => {
   return (
     <NavBar
+      className="navigation"
       leftContent={<Logo />}
       rightContent={
         <TabBar>
-          {navItems.map(({ key, title }) => (
-            <TabBar.Item key={key} title={title} />
-          ))}
+          {navItems
+            .filter(({ menu }) => !menu)
+            .map(({ key, title }) => (
+              <TabBar.Item key={key} title={title} />
+            ))}
         </TabBar>
       }
     />
