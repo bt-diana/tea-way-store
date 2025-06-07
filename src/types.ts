@@ -11,4 +11,5 @@ export type navItem = {
   title: string;
   icon?: TabIcon;
   menu?: boolean;
+  url?: string;
 };
