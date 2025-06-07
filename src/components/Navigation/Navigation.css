@@ -3,10 +3,18 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
-  padding: 8px 20px;
+  padding: 8px 0px;
+
+  .am-navbar-left {
+    padding: 4px 8px;
+  }
 
   .am-tab-bar-tab-icon {
     display: none;
+  }
+
+  .am-tab-bar-tab-title {
+    margin: unset;
   }
 
   .am-tab-bar-bar {
@@ -16,5 +24,9 @@
   .am-tab-bar-tab {
     width: 90px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 4px 8px;
   }
 }
