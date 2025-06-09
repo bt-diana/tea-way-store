@@ -1,6 +1,5 @@
-import './App.css';
-import Navigation from './components/Navigation/Navigation';
-import Content from './components/Content/Content';
+import Navigation from './Navigation';
+import Content from './Content';
 
 const App = () => {
   return (

@@ -1,7 +1,6 @@
-import './Navigation.css';
 import { TabBar } from 'antd-mobile-v2';
-import { navItems } from '../../assets/data';
-import Logo from '../Logo/Logo';
+import { navItems } from '../assets/data';
+import Logo from './Logo';
 
 type NavigationProps = {
   mobile?: boolean;
@@ -11,7 +10,7 @@ type NavigationProps = {
 const Navigation = ({ mobile, bottom }: NavigationProps) => {
   if (mobile) {
     return (
-      <nav className={bottom ? "bottom-navigation" : "navigation"}>
+      <nav className={bottom ? 'bottom-navigation' : 'navigation'}>
         {!bottom ? <Logo /> : null}
         <TabBar>
           {navItems
