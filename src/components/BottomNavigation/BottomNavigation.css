@@ -1,6 +1,7 @@
 .bottom-navigation {
   border-top: 1px solid var(--border);
-    padding: 8px 0px;
+  box-sizing: border-box;
+  height: var(--navigation-height);
   
   .am-tab-bar-tab-icon svg {
     width: 24px;

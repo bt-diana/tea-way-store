@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
-  padding: 8px 0px;
+  box-sizing: border-box;
+  height: var(--navigation-height);
 
   .am-navbar-left {
     padding: 4px 8px;
