@@ -1,7 +1,5 @@
-import './reset.css';
-import './colors.css';
-import './numbers.css';
-import './index.css';
+import './styles/index.css';
+import './main.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ConfigProvider } from 'antd';
