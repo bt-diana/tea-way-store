@@ -12,6 +12,7 @@
 .logo-title {
   font-family: chow-fun;
   color: var(--logo-text);
+  text-wrap: nowrap;
 }
 
 .logo-img {
