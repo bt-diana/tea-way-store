@@ -1,11 +1,12 @@
 .bottom-navigation {
+  display: flex;
+  align-items: center;
   border-top: 1px solid var(--border);
   box-sizing: border-box;
   height: var(--navigation-height);
-  
-  .am-tab-bar-tab-icon svg {
-    width: 24px;
-    height: 24px;
+
+  .am-navbar-title {
+    width: 100%;
   }
 
   .am-tab-bar-tab-title {
@@ -24,5 +25,10 @@
     flex-direction: column;
     gap: 2px;
     padding: 4px 8px;
+  }
+
+  .am-tab-bar-tab-icon svg {
+    width: 24px;
+    height: 24px;
   }
 }
