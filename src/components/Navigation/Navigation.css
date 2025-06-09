@@ -1,18 +1,9 @@
-.navigation {
+.navigation, .bottom-navigation {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border-bottom: 1px solid var(--border);
   box-sizing: border-box;
   height: var(--navigation-height);
-
-  .logo {
-    padding: 4px 8px;
-  }
-
-  .am-tab-bar-tab-icon {
-    display: none;
-  }
 
   .am-tab-bar-bar {
     display: flex;
@@ -30,5 +21,28 @@
 
   .am-tab-bar-tab-title {
     margin: unset;
+  }
+}
+
+.navigation {
+  justify-content: space-between;
+
+  .logo {
+    padding: 4px 8px;
+  }
+
+  .am-tab-bar-tab-icon {
+    display: none;
+  }
+}
+
+.bottom-navigation {
+  .am-tab-bar-tab-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .am-tab-bar {
+    width: 100%;
   }
 }
