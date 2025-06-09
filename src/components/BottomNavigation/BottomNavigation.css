@@ -5,12 +5,8 @@
   box-sizing: border-box;
   height: var(--navigation-height);
 
-  .am-navbar-title {
+  .am-tab-bar {
     width: 100%;
-  }
-
-  .am-tab-bar-tab-title {
-    margin: unset;
   }
 
   .am-tab-bar-bar {
@@ -30,5 +26,9 @@
   .am-tab-bar-tab-icon svg {
     width: 24px;
     height: 24px;
+  }
+
+  .am-tab-bar-tab-title {
+    margin: unset;
   }
 }

@@ -1,11 +1,10 @@
 import './BottomNavigation.css';
 import { TabBar } from 'antd-mobile-v2';
 import { navItems } from '../../assets/data';
-import { NavBar } from 'antd-mobile-v2';
 
 const BottomNavigation = () => {
   return (
-    <NavBar className="bottom-navigation">
+    <nav className="bottom-navigation">
       <TabBar>
         {navItems
           .filter(({ menu }) => menu)
@@ -13,7 +12,7 @@ const BottomNavigation = () => {
             <TabBar.Item key={key} title={title} icon={icon} />
           ))}
       </TabBar>
-    </NavBar>
+    </nav>
   );
 };
 

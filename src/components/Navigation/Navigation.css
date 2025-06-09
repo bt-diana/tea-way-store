@@ -6,7 +6,7 @@
   box-sizing: border-box;
   height: var(--navigation-height);
 
-  .am-navbar-left {
+  .logo {
     padding: 4px 8px;
   }
 
@@ -14,12 +14,9 @@
     display: none;
   }
 
-  .am-tab-bar-tab-title {
-    margin: unset;
-  }
-
   .am-tab-bar-bar {
     display: flex;
+    justify-content: space-between;
   }
 
   .am-tab-bar-tab {
@@ -29,5 +26,9 @@
     flex-direction: column;
     gap: 2px;
     padding: 4px 8px;
+  }
+
+  .am-tab-bar-tab-title {
+    margin: unset;
   }
 }
