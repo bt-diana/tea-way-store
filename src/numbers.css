@@ -1,0 +1,4 @@
+:root {
+  --navigation-height: 60px;
+  --content-height: calc(100vh - var(--navigation-height) * 2)
+}
