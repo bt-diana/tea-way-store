@@ -1,4 +1,5 @@
 .content {
-  background-color: var(--background);
+  background-color: var(--background-contrast);
   height: var(--content-height);
+  overflow: auto;
 }
