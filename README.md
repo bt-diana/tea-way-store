@@ -1,6 +1,6 @@
 # Tea Way Store
 
-Tea Way Store is the commercial website for a tea shop, designed to showcase a catalog of teas and simplify the ordering process through WhatsApp. The application is built with adaptive layout to provide a smooth user experience on both desktop and mobile devices. The layout follows (Figma-based UI mockups)[https://www.figma.com/design/P6ULjJbYvAL2EcR9dWybzm/Design---TeaWay.kg?node-id=6-5&t=Vacuh0fER1gxwYNm-1] and uses (Ant Design)[https://ant.design/] and (Ant Design Mobile)[https://mobile.ant.design/] UI components.
+Tea Way Store is the commercial website for a tea shop, designed to showcase a catalog of teas and simplify the ordering process through WhatsApp. The application is built with adaptive layout to provide a smooth user experience on both desktop and mobile devices. The layout follows [Figma-based UI mockups](https://www.figma.com/design/P6ULjJbYvAL2EcR9dWybzm/Design---TeaWay.kg?node-id=6-5&t=Vacuh0fER1gxwYNm-1) and uses [Ant Design](https://ant.design/) and [Ant Design Mobile](https://mobile.ant.design/) UI components.
 
 ## Features
 ### Product Showcase
