@@ -1,5 +1,5 @@
-import Navigation from './Navigation';
-import Content from './Content';
+import Navigation from './components/Navigation';
+import Content from './components/Content';
 
 const App = () => {
   return (
