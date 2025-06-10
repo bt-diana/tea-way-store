@@ -1,72 +1,92 @@
-// Header 1
+@mixin logo() {
+  font-family: ChowFun;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  color: var(--logo);
+  text-wrap: nowrap;
+}
+
+.logo {
+  @include logo;
+}
+
 @mixin h1() {
-  font-family: Arial, sans-serif;
+  font-family: Roboto;
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
-  line-height: 150%; // 48px
-  letter-spacing: 5.76px;
-  text-transform: uppercase;
+  line-height: 150%;
+  color: var(--header);
 }
 
 h1 {
   @include h1;
 }
 
-// Header 2
 @mixin h2() {
-  font-family: Arial, sans-serif;
+  font-family: Roboto;
   font-size: 24px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 152%; // 36.48px
-  letter-spacing: 3.84px;
-  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 32px; /* 133.333% */
+  color: var(--header);
 }
 
 h2 {
   @include h2;
 }
 
-// Header 3
 @mixin h3() {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-family: Roboto;
+  font-size: 20px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 152%; // 24.32px
-  letter-spacing: 1.28px;
-  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 32px; /* 160% */
+  color: var(--header);
 }
 
 h3 {
   @include h3;
 }
 
-// Header 4
 @mixin h4() {
-  font-family: Arial, sans-serif;
-  font-size: 12px;
+  font-family: Roboto;
+  font-size: 14px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 130%; // 15.6px
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 22px; /* 157.143% */
+  color: var(--header);
 }
 
 h4 {
   @include h4;
 }
 
-// Paragraph
 @mixin paragraph() {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-family: Roboto;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 148%; // 23.68px
+  line-height: 22px; /* 157.143% */
+  color: var(--text);
 }
 
 .paragraph {
   @include paragraph;
+}
+
+@mixin caption() {
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 14px */
+  color: var(--grey-600);
+  text-align: center;
+}
+
+.caption {
+  @include caption;
 }
