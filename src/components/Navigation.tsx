@@ -33,24 +33,22 @@ const Navigation = ({ mobile, bottom }: NavigationProps) => {
     );
   }
 
-  if (bottom) {
-    return null;
+  if (!bottom) {
+    return (
+      <nav className="navigation">
+        <Logo />
+        <TabBar>
+          {navItems.map(({ key, title, url }) => (
+            <Item
+              key={key}
+              title={title}
+              onPress={() => (url ? navigate(url) : null)}
+            />
+          ))}
+        </TabBar>
+      </nav>
+    );
   }
-
-  return (
-    <nav className="navigation">
-      <Logo />
-      <TabBar>
-        {navItems.map(({ key, title, url }) => (
-          <Item
-            key={key}
-            title={title}
-            onPress={() => (url ? navigate(url) : null)}
-          />
-        ))}
-      </TabBar>
-    </nav>
-  );
 };
 
 export default Navigation;
