@@ -4,6 +4,7 @@ export type navItem = {
   key: string;
   title: string;
   icon?: TabIcon;
+  alterIcon?: TabIcon;
   menu?: boolean;
   url?: string;
 };

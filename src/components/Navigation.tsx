@@ -2,6 +2,8 @@ import { TabBar } from 'antd-mobile-v2';
 import { navItems } from '../assets/data';
 import Logo from './Logo';
 import { useNavigate } from 'react-router-dom';
+import PopUpMenu from './PopUpMenu';
+import { useState } from 'react';
 
 const { Item } = TabBar;
 
@@ -12,6 +14,7 @@ type NavigationProps = {
 
 const Navigation = ({ mobile, bottom }: NavigationProps) => {
   const navigate = useNavigate();
+  const [menuIsVisible, setMenuIsVisible] = useState(false);
 
   if (mobile) {
     return (
@@ -20,15 +23,18 @@ const Navigation = ({ mobile, bottom }: NavigationProps) => {
         <TabBar>
           {navItems
             .filter(({ menu }) => menu == bottom)
-            .map(({ key, title, icon, url }) => (
+            .map(({ key, title, icon, url, alterIcon }) => (
               <Item
                 key={key}
                 title={title}
-                icon={icon}
-                onPress={() => (url ? navigate(url) : null)}
+                icon={alterIcon && menuIsVisible ? alterIcon : icon}
+                onPress={() =>
+                  url ? navigate(url) : setMenuIsVisible((value) => !value)
+                }
               />
             ))}
         </TabBar>
+        <PopUpMenu visible={menuIsVisible} />
       </nav>
     );
   }
@@ -42,10 +48,13 @@ const Navigation = ({ mobile, bottom }: NavigationProps) => {
             <Item
               key={key}
               title={title}
-              onPress={() => (url ? navigate(url) : null)}
+              onPress={() =>
+                url ? navigate(url) : setMenuIsVisible((value) => !value)
+              }
             />
           ))}
         </TabBar>
+        <PopUpMenu visible={menuIsVisible} />
       </nav>
     );
   }

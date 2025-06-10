@@ -1,5 +1,6 @@
 import type { navItem } from '../../types';
 import {
+  CloseOutlined,
   GlobalOutlined,
   HomeOutlined,
   MenuOutlined,
@@ -35,6 +36,7 @@ const navItems: navItem[] = [
     key: 'catalog',
     title: 'Каталог',
     icon: <MenuOutlined />,
+    alterIcon: <CloseOutlined />,
     menu: true,
   },
   {
