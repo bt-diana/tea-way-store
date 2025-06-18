@@ -4,7 +4,8 @@ export type navItem = {
   key: string;
   title: string;
   icon?: TabIcon;
-  alterIcon?: TabIcon;
+  activeIcon?: TabIcon;
   menu?: boolean;
   url?: string;
+  onPress(): void;
 };
