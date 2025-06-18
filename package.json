@@ -1,5 +1,5 @@
 {
-  "name": "tea-way",
+  "name": "tea-way-store",
   "description": "online store website",
   "private": "true",
   "version": "0.0.0",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bt-diana/tea-way.git"
+    "url": "https://github.com/bt-diana/tea-way-store"
   },
   "keywords": [
     "react",
