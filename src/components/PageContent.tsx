@@ -4,11 +4,11 @@ import { Outlet } from 'react-router-dom';
 const PageContent = () => {
   return (
     <>
-      <Navigation mobile={true} />
+      <Navigation />
       <main className="content">
         <Outlet />
       </main>
-      <Navigation mobile={true} bottom={true} />
+      <Navigation bottom={true} />
     </>
   );
 };
