@@ -27,7 +27,7 @@ const SearchForm = () => {
         style={{ margin: 'unset' }}
       >
         <Space.Compact style={{ width: '100%' }}>
-          <Input placeholder="Введите текст для поиска..." />
+          <Input placeholder="Введите текст для поиска..." allowClear />
           <Button icon={<SearchOutlined />} />
         </Space.Compact>
       </Form.Item>
