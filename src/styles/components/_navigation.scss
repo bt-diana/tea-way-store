@@ -8,8 +8,6 @@
   padding: 0px 8px;
   width: 100%;
   background: var(--background);
-  position: relative;
-  z-index: 10000;
 
   .am-tab-bar-bar {
     display: flex;
@@ -41,6 +39,8 @@
 
 .bottom-navigation {
   border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 10000;
 
   .am-tab-bar-tab-icon svg {
     width: 20px;
