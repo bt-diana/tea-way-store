@@ -1,0 +1,17 @@
+
+.list-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+.list-item-title {
+  margin-left: 16px;
+}
+
+.subitems-list {
+  padding-left: 16px;
+  width: 100%;
+}

@@ -1,4 +1,5 @@
-import { Popup, Space } from 'antd-mobile';
+import { Popup } from 'antd-mobile';
+import Catalog from './Catalog';
 
 type PopUpMenuProps = {
   visible: boolean;
@@ -7,12 +8,8 @@ type PopUpMenuProps = {
 
 const PopUpMenu = ({ visible, close }: PopUpMenuProps) => {
   return (
-    <Popup visible={visible} bodyStyle={{ height: '90%' }} onMaskClick={close}>
-      <div style={{ padding: '24px' }}>
-        <Space direction="vertical">
-          <div>Menu</div>
-        </Space>
-      </div>
+    <Popup visible={visible} bodyStyle={{ height: '80%' }} onMaskClick={close}>
+      <Catalog />
     </Popup>
   );
 };
