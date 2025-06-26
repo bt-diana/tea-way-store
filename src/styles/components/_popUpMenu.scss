@@ -1,3 +1,13 @@
 .adm-popup-body-position-bottom {
   bottom: var(--navigation-height) !important;
 }
+
+.menu-options {
+  width: 100%;
+  padding: var(--catalog-padding);
+  box-sizing: border-box;
+
+  :first-child {
+    flex: 1 0 0;
+  }
+}
