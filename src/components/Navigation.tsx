@@ -48,6 +48,9 @@ const Navigation = ({ bottom }: NavigationProps) => {
       menu: true,
       onPress() {
         navigate(this.url!);
+        if (menuIsVisible) {
+          setMenuIsVisible(false);
+        }
       },
     },
     {
@@ -55,7 +58,7 @@ const Navigation = ({ bottom }: NavigationProps) => {
       title: 'Поиск',
       icon: <SearchOutlined />,
       menu: true,
-      onPress: () => {
+      onPress() {
         setMenuIsVisible((isVisible) => !isVisible);
       },
     },
@@ -77,6 +80,9 @@ const Navigation = ({ bottom }: NavigationProps) => {
       menu: true,
       onPress() {
         navigate(this.url!);
+        if (menuIsVisible) {
+          setMenuIsVisible(false);
+        }
       },
     },
     {
@@ -94,12 +100,18 @@ const Navigation = ({ bottom }: NavigationProps) => {
       <TabBar>
         {navItems
           .filter(({ menu }) => menu == bottom)
-          .map(({ key, title, icon, activeIcon, onPress }) => (
+          .map((item) => (
             <Item
-              key={key}
-              title={title}
-              icon={activeIcon ? (menuIsVisible ? activeIcon : icon) : icon}
-              onPress={onPress}
+              key={item.key}
+              title={item.title}
+              icon={
+                item.activeIcon
+                  ? menuIsVisible
+                    ? item.activeIcon
+                    : item.icon
+                  : item.icon
+              }
+              onPress={item.onPress.bind(item)}
             />
           ))}
       </TabBar>
