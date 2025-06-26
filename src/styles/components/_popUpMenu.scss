@@ -1,4 +1,6 @@
 .adm-popup-body-position-bottom {
+  display: flex;
+  flex-direction: column;
   bottom: var(--navigation-height) !important;
 }
 
