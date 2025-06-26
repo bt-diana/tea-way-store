@@ -8,10 +8,10 @@
 }
 
 .list-item-title {
-  margin-left: 16px;
+  margin-left: var(--catalog-padding);
 }
 
 .subitems-list {
-  padding-left: 16px;
+  padding-left: var(--catalog-padding);
   width: 100%;
 }
