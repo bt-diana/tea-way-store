@@ -17,7 +17,7 @@ const PopUpMenu = ({ visible, close }: PopUpMenuProps) => {
         <Button type="text" icon={<CloseOutlined />} onClick={close} />
       </Space>
       <Divider style={{ margin: 'unset' }} />
-      <Catalog />
+      <Catalog onNavigate={close} />
     </Popup>
   );
 };

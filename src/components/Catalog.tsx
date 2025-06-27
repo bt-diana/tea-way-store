@@ -1,12 +1,14 @@
-import { List } from 'antd';
-import type { catalogItem } from '../types/catalogItem';
-import CatalogItem from './CatalogItem';
+import { Menu } from 'antd';
+import type { CatalogItem } from '../types/catalogItem';
+import { Link } from 'react-router-dom';
 
-const catalogItems: catalogItem[] = [
+const { SubMenu, Item } = Menu;
+
+const catalogItems: CatalogItem[] = [
   {
     title: 'Чай',
     url: '/catalog/tea',
-    subitems: [
+    items: [
       {
         title: 'Зеленый чай',
         url: '/catalog/tea/green',
@@ -14,7 +16,7 @@ const catalogItems: catalogItem[] = [
       {
         title: 'Пуэр',
         url: '/catalog/tea/pu-erh',
-        subitems: [
+        items: [
           { title: 'Шу', url: '/catalog/tea/pu-erh/shu' },
           { title: 'Шэн', url: '/catalog/tea/pu-erh/sheng' },
         ],
@@ -32,12 +34,12 @@ const catalogItems: catalogItem[] = [
   {
     title: 'Посуда',
     url: '/catalog/teaware',
-    subitems: [
+    items: [
       { title: 'Пиалы', url: '/catalog/teaware/bowls' },
       {
         title: 'Чайники',
         url: '/catalog/teaware/teapots',
-        subitems: [
+        items: [
           { title: 'Исинская глина', url: '/catalog/teaware/teapots/yixing' },
           { title: 'Керамика', url: '/catalog/teaware/teapots/ceramic' },
           { title: 'Стекло', url: '/catalog/teaware/teapots/glass' },
@@ -48,7 +50,7 @@ const catalogItems: catalogItem[] = [
   {
     title: 'Приборы',
     url: '/catalog/tools',
-    subitems: [
+    items: [
       { title: 'Ножи для пуэра', url: '/catalog/tools/pu-erh-knives' },
       {
         title: 'Инструменты для чайной церемонии',
@@ -59,15 +61,59 @@ const catalogItems: catalogItem[] = [
   },
 ];
 
-const Catalog = () => {
+type CatalogProps = {
+  onNavigate: () => void;
+};
+
+const Catalog = ({ onNavigate }: CatalogProps) => {
   return (
-    <List
-      dataSource={catalogItems}
-      renderItem={({ url, title, subitems }) => (
-        <CatalogItem url={url} title={title} subitems={subitems} />
+    <Menu className="catalog" mode="inline" selectable={false}>
+      {catalogItems.map(({ url, title, items }) =>
+        items ? (
+          <SubMenu
+            key={url}
+            title={
+              <Link to={url} onClick={onNavigate}>
+                {title}
+              </Link>
+            }
+          >
+            {items?.map(({ url, title, items }) =>
+              items ? (
+                <SubMenu
+                  key={url}
+                  title={
+                    <Link to={url} onClick={onNavigate}>
+                      {title}
+                    </Link>
+                  }
+                >
+                  {items?.map(({ url, title }) => (
+                    <Item key={url}>
+                      <Link to={url} onClick={onNavigate}>
+                        {title}
+                      </Link>
+                    </Item>
+                  ))}
+                </SubMenu>
+              ) : (
+                <Item key={url}>
+                  <Link to={url} onClick={onNavigate}>
+                    {title}
+                  </Link>
+                </Item>
+              )
+            )}
+          </SubMenu>
+        ) : (
+          <Item key={url}>
+            <Link to={url} onClick={onNavigate}>
+              {title}
+            </Link>
+          </Item>
+        )
       )}
-      className="list"
-    />
+    </Menu>
   );
 };
 

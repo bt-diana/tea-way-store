@@ -11,7 +11,7 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from '@ant-design/icons';
-import type { navItem } from '../types/navItems';
+import type { NavItem } from '../types/navItems';
 
 const { Item } = TabBar;
 
@@ -23,7 +23,7 @@ const Navigation = ({ bottom }: NavigationProps) => {
   const navigate = useNavigate();
   const [menuIsVisible, setMenuIsVisible] = useState(false);
 
-  const navItems: navItem[] = [
+  const NavItems: NavItem[] = [
     {
       url: '/articles/about',
       key: 'about',
@@ -98,22 +98,20 @@ const Navigation = ({ bottom }: NavigationProps) => {
     <nav className={bottom ? 'bottom-navigation' : 'navigation'}>
       {!bottom ? <Logo /> : null}
       <TabBar>
-        {navItems
-          .filter(({ menu }) => menu == bottom)
-          .map((item) => (
-            <Item
-              key={item.key}
-              title={item.title}
-              icon={
-                item.activeIcon
-                  ? menuIsVisible
-                    ? item.activeIcon
-                    : item.icon
+        {NavItems.filter(({ menu }) => menu == bottom).map((item) => (
+          <Item
+            key={item.key}
+            title={item.title}
+            icon={
+              item.activeIcon
+                ? menuIsVisible
+                  ? item.activeIcon
                   : item.icon
-              }
-              onPress={item.onPress.bind(item)}
-            />
-          ))}
+                : item.icon
+            }
+            onPress={item.onPress.bind(item)}
+          />
+        ))}
       </TabBar>
       <PopUpMenu
         visible={menuIsVisible}

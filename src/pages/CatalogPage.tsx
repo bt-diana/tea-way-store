@@ -1,5 +1,8 @@
+import { useParams } from 'react-router-dom';
+
 const CatalogPage = () => {
-  return <h1>CatalogPage</h1>;
+  const { id } = useParams();
+  return <h1>CatalogPage: {id}</h1>;
 };
 
 export default CatalogPage;

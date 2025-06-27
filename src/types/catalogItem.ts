@@ -1,5 +1,5 @@
-export type catalogItem = {
+export type CatalogItem = {
   url: string;
   title: string;
-  subitems?: catalogItem[];
+  items?: CatalogItem[];
 };
