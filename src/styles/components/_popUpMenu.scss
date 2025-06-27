@@ -1,12 +1,14 @@
+@use '../abstract/sizes';
+
 .adm-popup-body-position-bottom {
   display: flex;
   flex-direction: column;
-  bottom: var(--navigation-height) !important;
+  bottom: sizes.$navigation-height !important;
 }
 
 .menu-options {
   width: 100%;
-  padding: var(--catalog-padding);
+  padding: sizes.$catalog-padding;
   box-sizing: border-box;
 
   :first-child {

@@ -1,5 +1,8 @@
+@use '../abstract/colors';
+@use '../abstract/sizes';
+
 .content {
-  background-color: var(--background-contrast);
-  height: var(--content-height);
+  background-color: colors.$background-contrast;
+  height: sizes.$content-height;
   overflow: auto;
 }

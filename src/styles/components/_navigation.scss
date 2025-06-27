@@ -1,13 +1,15 @@
 @use '../abstract/typography';
+@use '../abstract/colors';
+@use '../abstract/sizes';
 
 .navigation, .bottom-navigation {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  height: var(--navigation-height);
+  height: sizes.$navigation-height;
   padding: 0px 8px;
   width: 100%;
-  background: var(--background);
+  background: colors.$background;
 
   .am-tab-bar-bar {
     display: flex;
@@ -30,7 +32,7 @@
 }
 
 .navigation {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid colors.$border;
   justify-content: space-between;
   .am-tab-bar-tab-icon {
     display: none;
@@ -38,7 +40,7 @@
 }
 
 .bottom-navigation {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid colors.$border;
   position: relative;
   z-index: 10000;
 
