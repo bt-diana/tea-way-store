@@ -12,6 +12,7 @@ import {
   ShoppingCartOutlined,
 } from '@ant-design/icons';
 import type { NavItem } from '../types/navItems';
+import LanguagePicker from './LanguagePicker';
 
 const { Item } = TabBar;
 
@@ -22,6 +23,7 @@ type NavigationProps = {
 const Navigation = ({ bottom }: NavigationProps) => {
   const navigate = useNavigate();
   const [menuIsVisible, setMenuIsVisible] = useState(false);
+  const [langPickerIsVisible, setLangPickerIsVisible] = useState(false);
 
   const NavItems: NavItem[] = [
     {
@@ -88,9 +90,15 @@ const Navigation = ({ bottom }: NavigationProps) => {
     {
       key: 'lang',
       title: 'Язык',
-      icon: <GlobalOutlined />,
+      icon: (
+        <LanguagePicker>
+          <GlobalOutlined style={{ justifyContent: 'center', width: '100%' }} />
+        </LanguagePicker>
+      ),
       menu: true,
-      onPress() {},
+      onPress() {
+        setLangPickerIsVisible((isVisible) => !isVisible);
+      },
     },
   ];
 
@@ -113,10 +121,14 @@ const Navigation = ({ bottom }: NavigationProps) => {
           />
         ))}
       </TabBar>
-      <PopUpMenu
-        visible={menuIsVisible}
-        close={() => setMenuIsVisible(false)}
-      />
+      {bottom && (
+        <>
+          <PopUpMenu
+            visible={menuIsVisible}
+            close={() => setMenuIsVisible(false)}
+          />
+        </>
+      )}
     </nav>
   );
 };
