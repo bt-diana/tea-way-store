@@ -1,0 +1,7 @@
+@use '../abstract/typography';
+@use '../abstract/colors';
+
+.ant-dropdown-menu-item-selected {
+  color: colors.$selected !important;
+  background-color: colors.$background-selected !important;
+}
