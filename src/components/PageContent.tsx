@@ -1,13 +1,21 @@
+import Footer from './Footer';
 import Navigation from './Navigation';
 import { Outlet } from 'react-router-dom';
 
 const PageContent = () => {
   return (
     <>
-      <Navigation />
-      <main className="content">
-        <Outlet />
-      </main>
+      <header>
+        <Navigation />
+      </header>
+      <div className="content">
+        <main>
+          <Outlet />
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
       <Navigation bottom={true} />
     </>
   );
