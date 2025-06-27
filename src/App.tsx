@@ -6,6 +6,7 @@ import CatalogPage from './pages/CatalogPage';
 import PlacingOrederPage from './pages/PlacingOrederPage';
 import ArticlePage from './pages/ArticlePage';
 import ArticlesListPage from './pages/ArticlesListPage';
+import CartPage from './pages/CartPage';
 
 const App = () => {
   return (
@@ -15,14 +16,16 @@ const App = () => {
           <Route index element={<MainPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="catalog/:id" element={<CatalogPage />}>
-            <Route path=":id" element={<CatalogPage />}>
-              <Route path=":id" element={<CatalogPage />} />
+            <Route path=":id">
+              <Route path=":id" />
             </Route>
           </Route>
-          <Route path="cart" element={<CatalogPage />}>
+          <Route path="cart">
+            <Route index element={<CartPage />} />
             <Route path="placing-order" element={<PlacingOrederPage />} />
           </Route>
-          <Route path="articles" element={<ArticlesListPage />}>
+          <Route path="articles">
+            <Route index element={<ArticlesListPage />} />
             <Route path=":id" element={<ArticlePage />} />
           </Route>
         </Route>
