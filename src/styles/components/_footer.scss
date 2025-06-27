@@ -1,0 +1,7 @@
+@use '../abstract/colors';
+@use '../abstract/sizes';
+
+.footer {
+  height: sizes.$content-height;
+  background-color: colors.$background;
+}
