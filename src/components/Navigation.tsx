@@ -23,7 +23,6 @@ type NavigationProps = {
 const Navigation = ({ bottom }: NavigationProps) => {
   const navigate = useNavigate();
   const [menuIsVisible, setMenuIsVisible] = useState(false);
-  const [langPickerIsVisible, setLangPickerIsVisible] = useState(false);
 
   const NavItems: NavItem[] = [
     {
@@ -96,9 +95,6 @@ const Navigation = ({ bottom }: NavigationProps) => {
         </LanguagePicker>
       ),
       menu: true,
-      onPress() {
-        setLangPickerIsVisible((isVisible) => !isVisible);
-      },
     },
   ];
 
@@ -117,7 +113,7 @@ const Navigation = ({ bottom }: NavigationProps) => {
                   : item.icon
                 : item.icon
             }
-            onPress={item.onPress.bind(item)}
+            onPress={item.onPress && item.onPress.bind(item)}
           />
         ))}
       </TabBar>

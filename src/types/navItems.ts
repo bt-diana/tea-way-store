@@ -7,5 +7,5 @@ export type NavItem = {
   activeIcon?: TabIcon;
   menu?: boolean;
   url?: string;
-  onPress(): void;
+  onPress?: () => void;
 };
