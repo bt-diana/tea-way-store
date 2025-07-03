@@ -6,6 +6,8 @@
 @use 'abstract/colors';
 @use 'abstract/sizes';
 
+@use 'layout/section';
+@use 'layout/main';
 @use 'layout/footer';
 
 @use 'components/logo';

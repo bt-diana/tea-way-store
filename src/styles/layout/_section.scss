@@ -1,0 +1,8 @@
+@use '../abstract/colors';
+@use '../abstract/sizes';
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: sizes.$page-gap;
+}

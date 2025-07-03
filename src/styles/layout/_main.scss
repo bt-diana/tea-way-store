@@ -1,0 +1,9 @@
+@use '../abstract/colors';
+@use '../abstract/sizes';
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: sizes.$page-gap;
+  padding: sizes.$page-padding;
+}
