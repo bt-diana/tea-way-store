@@ -75,7 +75,7 @@ h4 {
   color: colors.$text;
 }
 
-p {
+p .paragrapth {
   @include paragraph;
 }
 
