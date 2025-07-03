@@ -12,8 +12,8 @@ const Section = ({
 }: SectionProps) => {
   return (
     <section className={className}>
-      <TitleLevel>{title}</TitleLevel>
-      <p>{paragraph}</p>
+      {title && <TitleLevel>{title}</TitleLevel>}
+      {paragraph && <p>{paragraph}</p>}
       {children}
     </section>
   );
