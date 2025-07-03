@@ -1,10 +1,10 @@
-import type { TabIcon } from 'antd-mobile-v2/lib/tab-bar/PropsType';
+import type { ReactNode } from 'react';
 
 export type NavItem = {
   key: string;
   title: string;
-  icon?: TabIcon;
-  activeIcon?: TabIcon;
+  icon?: ReactNode;
+  activeIcon?: ReactNode;
   menu?: boolean;
   url?: string;
   onPress?: () => void;
