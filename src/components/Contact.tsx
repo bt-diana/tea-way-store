@@ -4,12 +4,10 @@ type ContactProps = ContactsItem;
 
 const Contact = ({ icon, text, link }: ContactProps) => {
   return (
-    <div className="contact">
-      <a className="contact" href={link}>
-        <div className="contact-icon icon">{icon}</div>
-        <div className="contact-text paragrapth">{text}</div>
-      </a>
-    </div>
+    <a className="contact paragrapth" href={link}>
+      {icon && <div className="contact-icon icon">{icon}</div>}
+      {text && <div className="contact-text">{text}</div>}
+    </a>
   );
 };
 
