@@ -55,7 +55,7 @@ const socials: ContactsItem[] = [
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <footer>
       <Section title={data.title} className="contacts-section">
         <div className="contacts">
           {contacts.map(({ icon, text, link }) => (
@@ -70,7 +70,7 @@ const Footer = () => {
           ))}
         </div>
       </Section>
-    </div>
+    </footer>
   );
 };
 

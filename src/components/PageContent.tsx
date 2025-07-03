@@ -12,9 +12,7 @@ const PageContent = () => {
         <main>
           <Outlet />
         </main>
-        <footer>
-          <Footer />
-        </footer>
+        <Footer />
       </div>
       <Navigation bottom={true} />
     </>

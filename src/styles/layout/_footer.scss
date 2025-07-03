@@ -1,7 +1,7 @@
 @use '../abstract/colors';
 @use '../abstract/sizes';
 
-.footer {
+footer {
   display: flex;
   flex-direction: column;
   gap: sizes.$page-gap;
