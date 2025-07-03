@@ -2,6 +2,9 @@
 @use '../abstract/sizes';
 
 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: colors.$background-contrast;
   height: sizes.$content-height;
   overflow: auto;
