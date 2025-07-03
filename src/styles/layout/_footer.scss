@@ -1,0 +1,49 @@
+@use '../abstract/colors';
+@use '../abstract/sizes';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: sizes.$page-gap;
+  padding: sizes.$page-padding;
+  height: sizes.$content-height;
+  background-color: colors.$background;
+
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .contact {
+      color: colors.$component-grey;
+
+      :hover {
+        color: colors.$component-grey-selected;
+      }
+    }
+  }
+
+  .socials {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    .contact-icon {
+    width: 36px;
+    height: 36px;
+    }
+
+    .contact {
+      color: colors.$component;
+
+      :hover {
+        color: colors.$selected;
+      }
+    }
+  }  
+}

@@ -1,9 +1,12 @@
 @use 'base/reset';
+@use 'base/icon';
 
 @use 'abstract/fonts';
 @use 'abstract/typography';
 @use 'abstract/colors';
 @use 'abstract/sizes';
+
+@use 'layout/footer';
 
 @use 'components/logo';
 @use 'components/navigation';
@@ -11,4 +14,4 @@
 @use 'components/catalog';
 @use 'components/popUpMenu';
 @use 'components/languaguPicker';
-@use 'components/footer';
+@use 'components/contact';
