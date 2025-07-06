@@ -8,7 +8,7 @@ import {
   WhatsAppOutlined,
   YoutubeOutlined,
 } from '@ant-design/icons';
-import type { ContactsItem } from '../types/contactsItem';
+import type { Contact } from '../types/contact';
 import type { SectionData } from '../types/sectionData';
 import { Title } from '../types/titile';
 import Section from './Section';
@@ -18,7 +18,7 @@ const data: SectionData = {
   title: 'Свяжитесь с нами',
 };
 
-const contacts: ContactsItem[] = [
+const contacts: Contact[] = [
   {
     icon: <PhoneOutlined />,
     text: '+996-000-000-000',
@@ -38,7 +38,7 @@ const contacts: ContactsItem[] = [
   },
 ];
 
-const socials: ContactsItem[] = [
+const socials: Contact[] = [
   {
     icon: <FacebookOutlined style={{ fontSize: '36px' }} />,
   },

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-export type ContactsItem = {
+export type Contact = {
   icon?: ReactNode;
   text?: string;
   link?: string;
