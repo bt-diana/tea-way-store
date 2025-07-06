@@ -11,7 +11,7 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from '@ant-design/icons';
-import type { NavItem } from '../types/navItems';
+import type { NavItem } from '../types/navItem';
 import LanguagePicker from './LanguagePicker';
 
 const { Item } = TabBar;
