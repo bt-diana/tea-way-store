@@ -13,13 +13,13 @@ const sections: SectionData[] = [
 
 const MainPage = () => {
   return (
-    <div className="page">
+    <main>
       {sections.map(({ title, TitleLevel, paragraph, children }) => (
         <Section title={title} TitleLevel={TitleLevel} paragraph={paragraph}>
           {children}
         </Section>
       ))}
-    </div>
+    </main>
   );
 };
 

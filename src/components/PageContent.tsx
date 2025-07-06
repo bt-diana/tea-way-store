@@ -9,9 +9,7 @@ const PageContent = () => {
         <Navigation />
       </header>
       <div className="content">
-        <main>
-          <Outlet />
-        </main>
+        <Outlet />
         <Footer />
       </div>
       <Navigation bottom={true} />
