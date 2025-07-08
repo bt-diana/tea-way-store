@@ -66,6 +66,19 @@ h4 {
   @include h4;
 }
 
+@mixin h5() {
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 157.143% */
+  color: colors.$header;
+}
+
+h5 {
+  @include h5;
+}
+
 @mixin paragraph() {
   font-family: Roboto;
   font-size: 14px;
@@ -86,9 +99,21 @@ p, .paragrapth {
   font-weight: 400;
   line-height: 140%; /* 14px */
   color: colors.$text;
-  text-align: center;
 }
 
 .caption {
   @include caption;
+}
+
+@mixin select() {
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 220% */
+  color: colors.$header;
+}
+
+.ant-select-selection-item {
+  @include select;
 }
