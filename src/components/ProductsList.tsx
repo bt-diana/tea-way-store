@@ -4,7 +4,7 @@ import type { Product } from '../types/product';
 import ProductCard from './ProductCard';
 
 type ProductsListProps = {
-  popular: boolean;
+  popular?: boolean;
 };
 
 const ProductsList = ({ popular }: ProductsListProps) => {
@@ -15,7 +15,7 @@ const ProductsList = ({ popular }: ProductsListProps) => {
     getProducts(params).then((res) => {
       setProducts(res);
     });
-  }, []);
+  }, [popular]);
 
   return (
     <div className="products-list">
