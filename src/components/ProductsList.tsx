@@ -3,12 +3,16 @@ import { getProducts } from '../api/product';
 import type { Product } from '../types/product';
 import ProductCard from './ProductCard';
 
-const ProductsList = () => {
+type ProductsListProps = {
+  popular: boolean;
+};
+
+const ProductsList = ({ popular }: ProductsListProps) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    getProducts().then((res) => {
-      console.log(res);
+    const params = popular ? { ['popular' as keyof Product]: true } : undefined;
+    getProducts(params).then((res) => {
       setProducts(res);
     });
   }, []);
