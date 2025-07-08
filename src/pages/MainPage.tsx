@@ -1,3 +1,4 @@
+import ProductsList from '../components/ProductsList';
 import Section from '../components/Section';
 import type { SectionData } from '../types/sectionData';
 import { Title } from '../types/titile';
@@ -8,6 +9,10 @@ const sections: SectionData[] = [
     TitleLevel: Title.h1,
     paragraph:
       'Откройте мир настоящего китайского чая. Только отборные сорта, прямиком с лучших чайных плантаций Китая.',
+  },
+  {
+    title: 'Популярное',
+    children: <ProductsList />,
   },
 ];
 

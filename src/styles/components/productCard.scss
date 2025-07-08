@@ -1,0 +1,20 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card .ant-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 16px;
+  flex: 1;
+}
+
+.product-card-title {
+  flex: 1;
+}
+
+.product-card .ant-select-selector {
+  padding: 0 8px !important;
+}
