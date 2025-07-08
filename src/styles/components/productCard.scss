@@ -1,6 +1,8 @@
 .product-card {
   display: flex;
   flex-direction: column;
+  max-width: 200px;
+  width: calc(50% - 16px);
 }
 
 .product-card .ant-card-body {
