@@ -14,6 +14,12 @@ const theme = {
     colorTextBase: 'rgba(34, 34, 34, 1)',
     fontFamily: 'Roboto',
   },
+  components: {
+    Button: {
+      defaultBg: 'rgba(208, 221, 213, 1)',
+      defaultColor: 'rgba(65, 117, 86, 1)',
+    },
+  },
 };
 
 const AntdConfigProvider = ({ children }: AntdConfigProvider) => (
