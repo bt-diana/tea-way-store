@@ -1,0 +1,42 @@
+[
+  {
+    "productId": "product1",
+    "sizeId": "cake357",
+    "price": 2300
+  },
+  {
+    "productId": "product1",
+    "sizeId": "chunk50",
+    "price": 350
+  },
+  {
+    "productId": "product2",
+    "sizeId": "cake357",
+    "price": 3000
+  },
+  {
+    "productId": "product2",
+    "sizeId": "chunk50",
+    "price": 450
+  },
+  {
+    "productId": "product3",
+    "sizeId": "packaging1000",
+    "price": 13500
+  },
+  {
+    "productId": "product3",
+    "sizeId": "packaging200",
+    "price": 2700
+  },
+  {
+    "productId": "product3",
+    "sizeId": "packaging100",
+    "price": 1350
+  },
+  {
+    "productId": "product3",
+    "sizeId": "item1",
+    "price": 150
+  }
+]

@@ -1,7 +1,5 @@
-export type ProductSizePrice = {
-  id: string;
-  name: string;
-  weight: number;
-  unit: string;
+import type { ProductSize } from './productSize';
+
+export type ProductSizePrice = ProductSize & {
   price: number;
 };

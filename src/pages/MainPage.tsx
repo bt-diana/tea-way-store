@@ -12,7 +12,7 @@ const sections: SectionData[] = [
   },
   {
     title: 'Популярное',
-    children: <ProductsList popular={true} />,
+    children: <ProductsList mainPage={true} />,
   },
 ];
 
