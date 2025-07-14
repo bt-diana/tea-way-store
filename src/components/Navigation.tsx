@@ -1,4 +1,4 @@
-import { TabBar } from 'antd-mobile-v2';
+import { Menu } from 'antd';
 import Logo from './Logo';
 import { useNavigate } from 'react-router-dom';
 import PopUpMenu from './PopUpMenu';
@@ -13,8 +13,6 @@ import {
 } from '@ant-design/icons';
 import type { NavItem } from '../types/navItem';
 import LanguagePicker from './LanguagePicker';
-
-const { Item } = TabBar;
 
 type NavigationProps = {
   bottom?: boolean;
@@ -88,24 +86,20 @@ const Navigation = ({ bottom }: NavigationProps) => {
     },
     {
       key: 'lang',
-      title: 'Язык',
-      icon: (
-        <LanguagePicker>
-          <GlobalOutlined style={{ justifyContent: 'center', width: '100%' }} />
-        </LanguagePicker>
-      ),
+      title: <LanguagePicker>Язык</LanguagePicker>,
+      icon: <GlobalOutlined />,
       menu: true,
     },
   ];
 
   return (
     <nav className={bottom ? 'bottom-navigation' : 'navigation'}>
-      {!bottom ? <Logo /> : null}
-      <TabBar>
-        {NavItems.filter(({ menu }) => menu == bottom).map((item) => (
-          <Item
+      {!bottom && <Logo />}
+
+      <Menu mode="horizontal" selectable={false} className="navigation-menu">
+        {NavItems.filter(({ menu }) => menu === bottom).map((item) => (
+          <Menu.Item
             key={item.key}
-            title={item.title}
             icon={
               item.activeIcon
                 ? menuIsVisible
@@ -113,17 +107,22 @@ const Navigation = ({ bottom }: NavigationProps) => {
                   : item.icon
                 : item.icon
             }
-            onPress={item.onPress && item.onPress.bind(item)}
-          />
+            onClick={() => {
+              if (item.onPress) {
+                item.onPress.call(item);
+              }
+            }}
+          >
+            {item.title}
+          </Menu.Item>
         ))}
-      </TabBar>
+      </Menu>
+
       {bottom && (
-        <>
-          <PopUpMenu
-            visible={menuIsVisible}
-            close={() => setMenuIsVisible(false)}
-          />
-        </>
+        <PopUpMenu
+          visible={menuIsVisible}
+          close={() => setMenuIsVisible(false)}
+        />
       )}
     </nav>
   );
