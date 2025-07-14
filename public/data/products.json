@@ -24,6 +24,6 @@
     "region": "Провинция Юньнань",
     "typeId": "puerh",
     "cover": "1RD3Zlm47Yrvve3lOYLnYeAbU0qLIJ0Ui",
-    "popular": null
+    "showOnMainPage": true
   }
 ]
