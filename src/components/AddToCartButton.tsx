@@ -33,13 +33,7 @@ const AddToCartButton = ({
 
   if (amount) {
     return (
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
+      <div className="product-card-amount">
         <Button icon={<PlusOutlined />} onClick={add} />
         {amount}
         <Button icon={<MinusOutlined />} onClick={remove} />
@@ -48,7 +42,7 @@ const AddToCartButton = ({
   }
 
   return (
-    <Button type="primary" onClick={add}>
+    <Button type="primary" className="product-card-add" onClick={add}>
       В корзину
     </Button>
   );

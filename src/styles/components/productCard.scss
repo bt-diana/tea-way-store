@@ -1,22 +1,96 @@
-.product-card {
+@use '../abstract/typography';
+
+.product-card, .product {
   display: flex;
   flex-direction: column;
+
+  .product-card-amount-price {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .product-card-amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ant-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 16px;
+    flex: 1;
+  }
+
+  .product-card-title {
+    flex: 1;
+  }
+
+  .ant-select-selector {
+    padding: 0 8px !important;
+  }
+}
+
+.product-card {
   max-width: 200px;
   width: calc(50% - 16px);
+
+  .ant-card-cover img {
+    width: inherit;
+    border-radius: inherit;
+  }
+
+  .product-card-title {
+    @include typography.h5;
+  }
+
+  .ant-select-selection-item {
+    @include typography.select;
+  }
+
+  .product-card-price {
+    @include typography.h5
+  }
 }
 
-.product-card .ant-card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 8px 16px;
-  flex: 1;
-}
+.product {
+  background: transparent;
+  border: none;
+  max-width: unset;
+  width: 100%;
 
-.product-card-title {
-  flex: 1;
-}
+  .product-card-amount-price {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 
-.product-card .ant-select-selector {
-  padding: 0 8px !important;
+  .product-card-price {
+    flex: 1
+  }
+
+  .product-card-amount, .product-card-add {
+    flex: 1
+  }
+  
+  .ant-card-head {
+    padding: unset;
+  }
+
+  .ant-card-cover img {
+    border-radius: 8px;
+  }
+
+  .ant-card-body {
+    gap: 16px;
+  }
+
+  .product-card-title {
+    @include typography.h2;
+  }
+
+    .product-card-price {
+    @include typography.h3
+  }
 }

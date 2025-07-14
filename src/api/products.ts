@@ -25,7 +25,7 @@ export const getProductById = (idToFind: string) => {
       }
       return {
         ...product,
-        type: type,
+        type: type.name,
         sizesPrices: sizesPrices,
       };
     });
@@ -56,7 +56,7 @@ export const getProducts = async (
           }
           return {
             ...product,
-            type: type,
+            type: type.name,
             sizesPrices: sizesPrices,
           };
         })

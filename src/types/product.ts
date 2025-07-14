@@ -17,7 +17,7 @@ export type Product = {
   year: number;
   region: string;
   cover: string;
-  type?: ProductType;
+  type?: string;
   sizesPrices?: ProductSizePrice[];
   showOnMainPage?: boolean;
 };

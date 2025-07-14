@@ -7,6 +7,7 @@ import PlacingOrederPage from '../pages/PlacingOrederPage';
 import ArticlePage from '../pages/ArticlePage';
 import ArticlesListPage from '../pages/ArticlesListPage';
 import CartPage from '../pages/CartPage';
+import ProductPage from '../pages/ProductPage';
 
 const Router = () => {
   return (
@@ -19,6 +20,9 @@ const Router = () => {
             <Route path=":id">
               <Route path=":id" />
             </Route>
+          </Route>
+          <Route path="products">
+            <Route path=":id" element={<ProductPage />} />
           </Route>
           <Route path="cart">
             <Route index element={<CartPage />} />

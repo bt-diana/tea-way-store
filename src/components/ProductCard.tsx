@@ -1,34 +1,67 @@
-import { Card, Select } from 'antd';
+import { Card, Select, Descriptions, Image } from 'antd';
 import type { Product } from '../types/product';
 import { useState } from 'react';
 import AddToCartButton from './AddToCartButton';
+import { Link } from 'react-router-dom';
 
 const { Option } = Select;
 
 type ProductCardProps = {
   product: Product;
+  cartView?: boolean;
+  productPageView: boolean;
 };
 
-const ProductCard = ({
-  product: { id, name, year, region, type, cover, sizesPrices },
-}: ProductCardProps) => {
-  const Cover = cover && (
-    <img alt={name} src={`https://drive.google.com/thumbnail?id=${cover}`} />
+const ProductDescription: Record<string, string> = {
+  region: 'Регион сбора',
+  year: 'Год производства',
+  type: 'Тип',
+};
+
+const ProductCard = ({ product, productPageView }: ProductCardProps) => {
+  const { id, name, cover, type, region, year, sizesPrices } = product;
+
+  const Cover = () =>
+    productPageView ? (
+      <Image src={`https://drive.google.com/thumbnail?id=${product.cover}`} />
+    ) : (
+      <Link to={`/products/${id}`}>
+        <img
+          alt={name}
+          src={`https://drive.google.com/thumbnail?id=${cover}`}
+        />
+      </Link>
+    );
+
+  const Description = () =>
+    productPageView ? (
+      <Descriptions title="Характеристики">
+        {Object.entries(ProductDescription).map(([key, value]) => (
+          <Descriptions.Item key={key} label={value}>
+            {String(product[key as keyof Product])}
+          </Descriptions.Item>
+        ))}
+      </Descriptions>
+    ) : (
+      <div className="product-card-description">
+        <div className="caption">{`Тип: ${type}`}</div>
+        <div className="caption">{`Сбор: ${region}, ${year} г.`}</div>
+      </div>
+    );
+
+  const Cardname = () => (
+    <Link className="product-card-title" to={`/products/${id}`}>
+      <div>{name}</div>
+    </Link>
   );
-
-  const Description = () => (
-    <div className="product-card-description">
-      <div className="caption">{`Тип: ${type.name}`}</div>
-      <div className="caption">{`Сбор: ${region}, ${year} г.`}</div>
-    </div>
-  );
-
-  const Cardname = () => <h5 className="product-card-title">{name}</h5>;
-
-  const [selectedSize, setSelectedSize] = useState(sizesPrices[0]);
 
   const getSizePriceById = (idToFind: string) =>
     sizesPrices.find(({ id }) => id === idToFind);
+
+  const [selectedSize, setSelectedSize] = useState(() => {
+    const sizeId = JSON.parse(localStorage.getItem(id)!)?.size;
+    return sizeId ? getSizePriceById(sizeId) : sizesPrices[0];
+  });
 
   const [amount, setAmount] = useState<number>(
     JSON.parse(localStorage.getItem(id)!)?.amount ?? 0
@@ -46,7 +79,9 @@ const ProductCard = ({
     });
   };
 
-  const Price = () => <h5>{resultPrice} сом</h5>;
+  const Price = () => (
+    <div className="product-card-price">{resultPrice} сом</div>
+  );
 
   const add = () => {
     setAmount((value: number) => {
@@ -65,8 +100,12 @@ const ProductCard = ({
   };
 
   return (
-    <Card cover={Cover} className="product-card">
-      <Cardname />
+    <Card
+      cover={<Cover />}
+      title={productPageView && <Cardname />}
+      className={productPageView ? 'product' : 'product-card'}
+    >
+      {productPageView || <Cardname />}
       <Description />
       <Select
         value={selectedSize.id}
@@ -79,14 +118,16 @@ const ProductCard = ({
           </Option>
         ))}
       </Select>
-      <Price />
-      <AddToCartButton
-        id={id}
-        sizeId={selectedSize.id}
-        amount={amount}
-        add={add}
-        remove={remove}
-      />
+      <div className="product-card-amount-price">
+        <Price />
+        <AddToCartButton
+          id={id}
+          sizeId={selectedSize.id}
+          amount={amount}
+          add={add}
+          remove={remove}
+        />
+      </div>
     </Card>
   );
 };
