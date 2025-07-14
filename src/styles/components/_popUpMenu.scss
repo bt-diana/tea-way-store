@@ -1,17 +1,49 @@
 @use '../abstract/sizes';
 
-.adm-popup-body-position-bottom {
-  display: flex;
-  flex-direction: column;
-  bottom: sizes.$navigation-height !important;
+.ant-modal-wrap:has(.popup-menu) {
+  overflow: hidden;
 }
 
-.menu-options {
-  width: 100%;
-  padding: sizes.$catalog-padding;
-  box-sizing: border-box;
+.popup-menu {    
+  position: absolute !important;
+  margin: unset !important;
+  top: unset !important;
+  bottom: sizes.$navigation-height !important;
+  width: 100% !important;
+  height: sizes.$popup-menu-height !important;
+  max-width: unset !important;
+  margin: unset !important;
+  padding: unset !important;
 
-  :first-child {
-    flex: 1 0 0;
+  > div {
+    height: 100% !important;
   }
+
+  .ant-modal-content {
+    padding: unset;
+    height: 100% !important;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .ant-modal-body {
+    display: flex;
+    flex-direction: column;
+    height: 100% !important;
+  }
+
+  .ant-menu-root {
+    overflow-y: auto !important;
+    flex: 1;
+  }
+
+  .menu-options {
+    width: 100%;
+    padding: sizes.$catalog-padding;
+    box-sizing: border-box;
+
+    :first-child {
+      flex: 1 0 0;
+    }
+  }
+
 }
