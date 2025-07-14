@@ -1,6 +1,6 @@
 import type { Product, ProductRaw } from '../types/product';
 import { getSizesPricesByProductId } from './productSizesPrices';
-import { getProductTypeById } from './productTypes';
+import { getTypeById } from './productTypes';
 
 const API_URL = process.env.VITE_API_URL!;
 const PRODUCTS_PATH = process.env.VITE_API_PRODUCTS_PATH!;
@@ -15,7 +15,7 @@ export const getProductById = (idToFind: string) => {
     })
     .then((products) => products.find(({ id }: ProductRaw) => id === idToFind))
     .then(async (product: ProductRaw) => {
-      const type = await getProductTypeById(product.typeId);
+      const type = await getTypeById(product.typeId);
       const sizesPrices = await getSizesPricesByProductId(product.id);
       if (!type) {
         throw Error(`Product (id=${product.id}) type not found`);
@@ -44,7 +44,7 @@ export const getProducts = async (
     .then(async (products: ProductRaw[]) => {
       return Promise.all(
         products.map(async (product: ProductRaw) => {
-          const type = await getProductTypeById(product.typeId);
+          const type = await getTypeById(product.typeId);
           const sizesPrices = await getSizesPricesByProductId(product.id);
           if (!type) {
             throw Error(`Product (id=${product.id}) type not found`);

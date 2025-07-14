@@ -3,7 +3,7 @@ import type { ProductType } from '../types/productType';
 const API_URL = process.env.VITE_API_URL!;
 const PRODUCT_TYPES_PATH = process.env.VITE_API_PRODUCT_TYPES_PATH!;
 
-export const getProductTypeById = (idToFind: string) => {
+export const getTypeById = (idToFind: string) => {
   return fetch(API_URL + PRODUCT_TYPES_PATH)
     .then((res) => {
       if (!res.ok) throw Error(res.statusText);

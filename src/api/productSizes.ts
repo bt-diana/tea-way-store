@@ -3,7 +3,7 @@ import type { ProductSize } from '../types/productSize';
 const API_URL = process.env.VITE_API_URL!;
 const PRODUCT_SIZES_PATH = process.env.VITE_API_PRODUCT_SIZES_PATH!;
 
-export const getProductSizeById = (idToFind: string) => {
+export const getSizeById = (idToFind: string) => {
   return fetch(API_URL + PRODUCT_SIZES_PATH)
     .then((res) => {
       if (!res.ok) throw Error(res.statusText);
