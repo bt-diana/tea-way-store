@@ -3,7 +3,7 @@
     "id": "product1",
     "name": "Шен пуэр",
     "year": 2021,
-    "production": "Провинция Юньнань",
+    "region": "Провинция Юньнань",
     "typeId": "shen",
     "cover": "1pMe8jvdboVpn2mQpupSaoFd1D8Q1grgL",
     "showOnMainPage": true
@@ -12,7 +12,7 @@
     "id": "product2",
     "name": "Шу пуэр (Лао Бань Чжан)",
     "year": 2018,
-    "production": "Провинция Юньнань",
+    "region": "Провинция Юньнань",
     "typeId": "shu",
     "cover": "1SA37wpRxwE9rt2NRPdoLs4VAT2r-76CX",
     "showOnMainPage": true
@@ -21,7 +21,7 @@
     "id": "product3",
     "name": "Пуэр в мандарине (Сяо Цин Ган)",
     "year": 2018,
-    "production": "Провинция Юньнань",
+    "region": "Провинция Юньнань",
     "typeId": "puerh",
     "cover": "1RD3Zlm47Yrvve3lOYLnYeAbU0qLIJ0Ui",
     "popular": null

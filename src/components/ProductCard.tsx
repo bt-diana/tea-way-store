@@ -10,7 +10,7 @@ type ProductCardProps = {
 };
 
 const ProductCard = ({
-  product: { id, name, year, production, type, cover, sizesPrices },
+  product: { id, name, year, region, type, cover, sizesPrices },
 }: ProductCardProps) => {
   const Cover = cover && (
     <img alt={name} src={`https://drive.google.com/thumbnail?id=${cover}`} />
@@ -19,7 +19,7 @@ const ProductCard = ({
   const Description = () => (
     <div className="product-card-description">
       <div className="caption">{`Тип: ${type.name}`}</div>
-      <div className="caption">{`Сбор: ${production}, ${year} г.`}</div>
+      <div className="caption">{`Сбор: ${region}, ${year} г.`}</div>
     </div>
   );
 
