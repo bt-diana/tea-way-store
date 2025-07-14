@@ -15,7 +15,6 @@ const ProductsList = ({ mainPage }: ProductsListProps) => {
       ? { ['showOnMainPage' as keyof Product]: true }
       : undefined;
     getProducts(params).then((res) => {
-      console.log(res);
       setProducts(res);
     });
   }, [mainPage]);
