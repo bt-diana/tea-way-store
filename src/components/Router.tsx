@@ -15,10 +15,12 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<PageContent />}>
           <Route index element={<MainPage />} />
-          <Route path="search" element={<SearchPage />} />
-          <Route path="catalog/:id" element={<CatalogPage />}>
-            <Route path=":id">
-              <Route path=":id" />
+          <Route path="catalog">
+            <Route index element={<SearchPage />} />
+            <Route path=":id" element={<CatalogPage />}>
+              <Route path=":id">
+                <Route path=":id" />
+              </Route>
             </Route>
           </Route>
           <Route path="products">

@@ -1,0 +1,29 @@
+@use '../abstract/sizes';
+
+.tile-group {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 8px;
+
+  .tile {
+    flex: 1 1 fit-content;
+  }
+}
+
+.tile-carousel {
+  display: flex;
+  gap: 8px;
+  overflow-y: auto;
+  padding-left: sizes.$page-padding;
+  padding-right: sizes.$page-padding;
+  margin-left: - sizes.$page-padding;
+  margin-right: - sizes.$page-padding;
+
+  .tile {
+    aspect-ratio: 1 / 1;
+
+    .tile-card {
+      height: 100%;
+    }
+  }
+}
