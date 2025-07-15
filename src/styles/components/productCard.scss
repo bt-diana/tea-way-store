@@ -42,16 +42,8 @@
     border-radius: inherit;
   }
 
-  .product-card-title {
-    @include typography.h5;
-  }
-
   .ant-select-selection-item {
     @include typography.select;
-  }
-
-  .product-card-price {
-    @include typography.h5
   }
 }
 
@@ -84,13 +76,5 @@
 
   .ant-card-body {
     gap: 16px;
-  }
-
-  .product-card-title {
-    @include typography.h2;
-  }
-
-    .product-card-price {
-    @include typography.h3
   }
 }
