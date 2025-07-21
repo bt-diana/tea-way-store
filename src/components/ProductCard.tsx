@@ -1,16 +1,13 @@
-import { Card, Select, Descriptions, Image } from 'antd';
+import { Card } from 'antd';
 import type { Product } from '../types/product';
 import { useState } from 'react';
 import AddToCartButton from './AddToCartButton';
-import { Link } from 'react-router-dom';
 import type { ProductSizePrice } from '../types/productSizePrice';
 import ProductCover from './ProductCover';
 import ProductTitle from './ProductTitle';
 import ProductDescription from './ProductDescription';
 import ProductSizes from './ProductSizes';
 import ProductPrice from './ProductPrice';
-
-const { Option } = Select;
 
 type ProductCardProps = {
   product: Product;
@@ -86,7 +83,11 @@ const ProductCard = ({ product, productPageView }: ProductCardProps) => {
         />
       )}
       <ProductDescription product={product} productPageView={productPageView} />
-      <ProductSizes size={size} sizes={product.sizesPrices} />
+      <ProductSizes
+        size={size}
+        sizes={product.sizesPrices}
+        onSizeChange={onSizeChange}
+      />
       <div className="product-card-amount-price">
         <ProductPrice price={resultPrice} productPageView={productPageView} />
         <AddToCartButton

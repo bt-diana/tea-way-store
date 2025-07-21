@@ -2,6 +2,7 @@ import ProductsList from '../components/ProductsList';
 import Section from '../components/Section';
 import TilesGroup from '../components/TilesGroup';
 import type { SectionData } from '../types/sectionData';
+import type { TileData } from '../types/tileData';
 import { Title } from '../types/titile';
 
 const teaTiles: TileData[] = [
@@ -57,7 +58,7 @@ const sections: SectionData[] = [
   },
   {
     title: 'Популярное',
-    children: <ProductsList mainPage={true} />,
+    children: <ProductsList popular={true} />,
   },
 ];
 

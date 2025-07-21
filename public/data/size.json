@@ -2,43 +2,43 @@
   {
     "id": "cake357",
     "name": "блин",
-    "weight": 357,
+    "value": 357,
     "unit": "гр"
   },
   {
     "id": "chunk50",
     "name": "в разлом",
-    "weight": 50,
+    "value": 50,
     "unit": "гр"
   },
   {
     "id": "chunk5",
     "name": "в разлом",
-    "weight": 5,
+    "value": 5,
     "unit": "гр"
   },
   {
     "id": "packaging1000",
     "name": null,
-    "weight": 1,
+    "value": 1,
     "unit": "кг"
   },
   {
     "id": "packaging200",
     "name": null,
-    "weight": 200,
+    "value": 200,
     "unit": "гр"
   },
   {
     "id": "packaging100",
     "name": null,
-    "weight": 100,
+    "value": 100,
     "unit": "гр"
   },
   {
     "id": "item1",
     "name": null,
-    "weight": 1,
+    "value": 1,
     "unit": "шт."
   }
 ]

@@ -4,15 +4,15 @@ import type { ProductSizePrice } from '../types/productSizePrice';
 type ProductCoverProps = {
   size: ProductSizePrice;
   sizes: ProductSizePrice[];
-  onSizeChange?: () => void;
+  onSizeChange: (id: string) => void;
 };
 
 const ProductSizes = ({ size, sizes, onSizeChange }: ProductCoverProps) => {
   return (
     <Select value={size.id} onChange={onSizeChange} aria-label="объем">
-      {sizes.map(({ id, name, weight, unit }) => (
+      {sizes.map(({ id, name, value, unit }) => (
         <Select.Option key={id} value={id}>
-          {name ? `${name}, ${weight} ${unit}` : `${weight} ${unit}`}
+          {name ? `${name}, ${value} ${unit}` : `${value} ${unit}`}
         </Select.Option>
       ))}
     </Select>

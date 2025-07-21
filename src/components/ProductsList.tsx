@@ -4,20 +4,18 @@ import type { Product } from '../types/product';
 import ProductCard from './ProductCard';
 
 type ProductsListProps = {
-  mainPage?: boolean;
+  popular?: boolean;
 };
 
-const ProductsList = ({ mainPage }: ProductsListProps) => {
+const ProductsList = ({ popular }: ProductsListProps) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    const params = mainPage
-      ? { ['showOnMainPage' as keyof Product]: true }
-      : undefined;
+    const params = { ['popular' as keyof Product]: popular };
     getProducts(params).then((res) => {
       setProducts(res);
     });
-  }, [mainPage]);
+  }, [popular]);
 
   return (
     <div className="products-list">
