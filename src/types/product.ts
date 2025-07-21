@@ -1,5 +1,5 @@
 import type { ProductSizePrice } from './productSizePrice';
-import type { ProductTag } from './productTag';
+import type { ProductTags } from './productTags';
 
 export type ProductRaw = {
   id: string;
@@ -7,6 +7,7 @@ export type ProductRaw = {
   typeId: string;
   cover: string;
   year?: number;
+  regionId: string;
   description: string;
   popular?: boolean;
   amateur?: boolean;
@@ -18,7 +19,8 @@ export type Product = {
   type: string;
   cover: string;
   year?: number;
-  tags: ProductTag[];
+  region: string;
+  tags?: ProductTags;
   description: string;
   sizesPrices: ProductSizePrice[];
 };

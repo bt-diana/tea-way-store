@@ -1,9 +1,40 @@
 import type { Product, ProductRaw } from '../types/product';
+import { getRegionById } from './productRegion';
 import { getSizesPricesByProductId } from './productSizesPrices';
+import { getTagsByProductId } from './productTags';
 import { getTypeById } from './productTypes';
 
 const API_URL = process.env.VITE_API_URL!;
 const PRODUCTS_PATH = process.env.VITE_API_PRODUCT_PATH!;
+
+const getMappedProduct = async (product: ProductRaw) => {
+  const [type, sizesPrices, tags, region] = await Promise.all([
+    getTypeById(product.typeId),
+    getSizesPricesByProductId(product.id),
+    getTagsByProductId(product.id),
+    getRegionById(product.regionId),
+  ]);
+
+  if (!type) {
+    throw Error(`Product (id=${product.id}) type not found`);
+  }
+
+  if (!sizesPrices) {
+    throw Error(`Product (id=${product.id}) sizes and prices not found`);
+  }
+
+  if (!region) {
+    throw Error(`Region (id=${product.regionId}) not found`);
+  }
+
+  return {
+    ...product,
+    region: region.name,
+    type: type.name,
+    sizesPrices: sizesPrices,
+    tags: tags,
+  };
+};
 
 export const getProductById = (idToFind: string) => {
   return fetch(API_URL + PRODUCTS_PATH, {
@@ -14,21 +45,7 @@ export const getProductById = (idToFind: string) => {
       return res.json();
     })
     .then((products) => products.find(({ id }: ProductRaw) => id === idToFind))
-    .then(async (product: ProductRaw) => {
-      const type = await getTypeById(product.typeId);
-      const sizesPrices = await getSizesPricesByProductId(product.id);
-      if (!type) {
-        throw Error(`Product (id=${product.id}) type not found`);
-      }
-      if (!sizesPrices) {
-        throw Error(`Product (id=${product.id}) sizes and prices not found`);
-      }
-      return {
-        ...product,
-        type: type.name,
-        sizesPrices: sizesPrices,
-      };
-    });
+    .then(async (product: ProductRaw) => getMappedProduct(product));
 };
 
 export const getProducts = async (
@@ -43,23 +60,7 @@ export const getProducts = async (
     })
     .then(async (products: ProductRaw[]) => {
       return Promise.all(
-        products.map(async (product: ProductRaw) => {
-          const type = await getTypeById(product.typeId);
-          const sizesPrices = await getSizesPricesByProductId(product.id);
-          if (!type) {
-            throw Error(`Product (id=${product.id}) type not found`);
-          }
-          if (!sizesPrices) {
-            throw Error(
-              `Product (id=${product.id}) sizes and prices not found`
-            );
-          }
-          return {
-            ...product,
-            type: type.name,
-            sizesPrices: sizesPrices,
-          };
-        })
+        products.map(async (product: ProductRaw) => getMappedProduct(product))
       );
     })
     .then((mappedProducts: Product[]) => {
