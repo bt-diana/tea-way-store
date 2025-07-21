@@ -1,6 +1,6 @@
 export type ProductSize = {
   id: string;
-  name: string;
-  weight: number;
+  name?: string;
+  value: number | string;
   unit: string;
 };

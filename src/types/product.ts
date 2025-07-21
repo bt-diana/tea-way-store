@@ -1,21 +1,18 @@
-import type { ProductSizePrice } from './productSizePrice';
+import type { ProductTag } from './productTag';
 
 export type ProductRaw = {
   id: string;
   name: string;
-  year: number;
-  region: string;
-  cover: string;
   typeId: string;
-  showOnMainPage?: boolean;
+  cover: string;
+  description: string;
 };
 
 export type Product = {
   id: string;
   name: string;
-  year: number;
-  region: string;
-  cover: string;
   type: string;
-  sizesPrices: ProductSizePrice[];
+  cover: string;
+  tags: ProductTag[];
+  description: string;
 };
