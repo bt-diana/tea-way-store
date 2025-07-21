@@ -11,7 +11,7 @@ const ProductDescription = ({
   productPageView,
 }: ProductDescriptionProps) => {
   if (productPageView) {
-    const ProductDescription: Record<string, string> = {
+    const titles: Record<string, string> = {
       region: 'Регион сбора',
       year: 'Год производства',
       type: 'Тип',
@@ -19,11 +19,17 @@ const ProductDescription = ({
 
     return (
       <Descriptions title="Характеристики">
-        {Object.entries(ProductDescription).map(([key, value]) => (
+        {Object.entries(titles).map(([key, value]) => (
           <Descriptions.Item key={key} label={value}>
             {String(product[key as keyof Product])}
           </Descriptions.Item>
         ))}
+        {product.tags &&
+          Object.entries(product.tags).map(([key, { name, values }]) => (
+            <Descriptions.Item key={key} label={name}>
+              {values.join(',')}
+            </Descriptions.Item>
+          ))}
       </Descriptions>
     );
   }
