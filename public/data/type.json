@@ -1,17 +1,21 @@
 [
   {
+    "id": "tea",
+    "name": "чай"
+  },
+  {
     "id": "puerh",
     "name": "пуэр",
-    "parent": null
+    "parent": "tea"
   },
   {
     "id": "shen",
-    "name": "шен пуэр",
+    "name": "шен",
     "parent": "puerh"
   },
   {
     "id": "shu",
-    "name": "шу пуэр",
+    "name": "шу",
     "parent": "puerh"
   }
 ]
