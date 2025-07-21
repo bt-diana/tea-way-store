@@ -3,7 +3,7 @@ import { getSizesPricesByProductId } from './productSizesPrices';
 import { getTypeById } from './productTypes';
 
 const API_URL = process.env.VITE_API_URL!;
-const PRODUCTS_PATH = process.env.VITE_API_PRODUCTS_PATH!;
+const PRODUCTS_PATH = process.env.VITE_API_PRODUCT_PATH!;
 
 export const getProductById = (idToFind: string) => {
   return fetch(API_URL + PRODUCTS_PATH, {
