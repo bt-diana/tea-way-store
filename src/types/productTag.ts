@@ -10,7 +10,6 @@ export type Tag = {
 };
 
 export type ProductTagRaw = {
-  id: string;
   productId: string;
   tagId: string;
 };

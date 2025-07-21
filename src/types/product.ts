@@ -5,6 +5,7 @@ export type ProductRaw = {
   name: string;
   typeId: string;
   cover: string;
+  year?: number;
   description: string;
 };
 
@@ -13,6 +14,7 @@ export type Product = {
   name: string;
   type: string;
   cover: string;
+  year?: number;
   tags: ProductTag[];
   description: string;
 };
