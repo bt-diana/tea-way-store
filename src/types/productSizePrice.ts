@@ -1,4 +1,9 @@
-import type { ProductSize } from './productSize';
+export type ProductSize = {
+  id: string;
+  name?: string;
+  value: number | string;
+  unit: string;
+};
 
 export type ProductSizePriceRaw = {
   productId: string;

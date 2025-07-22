@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getProducts } from '../api/products';
-import type { Product } from '../types/product';
+import type { Product, ProductRaw } from '../types/product';
 import ProductCard from './ProductCard';
 
 type ProductsListProps = {
@@ -11,7 +11,7 @@ const ProductsList = ({ popular }: ProductsListProps) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    const params = { ['popular' as keyof Product]: popular };
+    const params = { ['popular' as keyof ProductRaw]: popular };
     getProducts(params).then((res) => {
       setProducts(res);
     });

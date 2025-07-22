@@ -1,8 +1,0 @@
-[
-  { "id": "region", "name": "регион" },
-  { "id": "taste", "name": "вкус" },
-  { "id": "effect", "name": "эффект" },
-  { "id": "material", "name": "материал" },
-  { "id": "filling", "name": "наполнение" },
-  { "id": "brewing_method", "name": "метод заваривания" }
-]

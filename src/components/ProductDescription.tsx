@@ -15,21 +15,34 @@ const ProductDescription = ({
       region: 'Регион сбора',
       year: 'Год производства',
       type: 'Тип',
+      tastes: 'Вкус',
+      effectes: 'Эффект',
+      materials: 'Материал',
     };
 
     return (
       <Descriptions title="Характеристики">
-        {Object.entries(titles).map(([key, value]) => (
-          <Descriptions.Item key={key} label={value}>
-            {String(product[key as keyof Product])}
-          </Descriptions.Item>
-        ))}
-        {product.tags &&
-          Object.entries(product.tags).map(([key, { name, values }]) => (
-            <Descriptions.Item key={key} label={name}>
-              {values.join(',')}
+        {Object.entries(titles).map(([key, label]) => {
+          const valueRaw = product[key as keyof Product];
+
+          if (valueRaw == null) {
+            return;
+          }
+
+          let value;
+
+          if (Array.isArray(valueRaw)) {
+            value = valueRaw.join(',');
+          } else {
+            value = String(valueRaw);
+          }
+
+          return (
+            <Descriptions.Item key={key} label={label}>
+              {value}
             </Descriptions.Item>
-          ))}
+          );
+        })}
       </Descriptions>
     );
   }

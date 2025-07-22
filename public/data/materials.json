@@ -1,0 +1,11 @@
+[
+  { "id": "material_1", "name": "фарфор" },
+  { "id": "material_2", "name": "глина" },
+  { "id": "material_3", "name": "керамика" },
+  { "id": "material_4", "name": "стекло" },
+  { "id": "material_5", "name": "бамбук" },
+  { "id": "material_6", "name": "дерево" },
+  { "id": "material_7", "name": "сталь" },
+  { "id": "material_8", "name": "чугун" },
+  { "id": "material_9", "name": "шеллак" }
+]
