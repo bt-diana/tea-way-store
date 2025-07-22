@@ -32,7 +32,8 @@
     margin-inline-start: unset !important;
   }
 
-  .ant-menu-item-active::after {
+  .ant-menu-item-active::after,
+  .ant-menu-item:hover::after {
     display: none !important;
   }
 }
