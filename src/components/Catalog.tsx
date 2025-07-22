@@ -3,8 +3,6 @@ import type { CatalogItem } from '../types/catalogItem';
 import { Link } from 'react-router-dom';
 import type { ItemType, MenuItemType } from 'antd/es/menu/interface';
 
-const { SubMenu, Item } = Menu;
-
 const catalogItems: CatalogItem[] = [
   {
     title: 'Чай',
