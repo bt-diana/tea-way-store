@@ -31,12 +31,14 @@ const NavItems: NavItem[] = [
     title: 'Главная',
     icon: <HomeOutlined />,
     menu: true,
+    closeMenu: true,
   },
   {
     key: 'search',
     title: 'Поиск',
     icon: <SearchOutlined />,
     menu: true,
+    openCloseMenu: true,
   },
   {
     key: 'catalog',
@@ -44,6 +46,7 @@ const NavItems: NavItem[] = [
     icon: <MenuOutlined />,
     activeIcon: <CloseOutlined />,
     menu: true,
+    openCloseMenu: true,
   },
   {
     url: '/cart',
@@ -51,6 +54,7 @@ const NavItems: NavItem[] = [
     icon: <ShoppingCartOutlined />,
     title: 'Корзина',
     menu: true,
+    closeMenu: true,
   },
   {
     key: 'lang',
@@ -96,7 +100,7 @@ const Navigation = ({ bottom }: NavigationProps) => {
               if (openCloseMenu) {
                 setMenuIsVisible((value) => !value);
               }
-              if (closeMenu && !menuIsVisible) {
+              if (closeMenu && menuIsVisible) {
                 setMenuIsVisible(false);
               }
             },
