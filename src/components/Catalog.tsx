@@ -1,6 +1,7 @@
 import { Menu } from 'antd';
 import type { CatalogItem } from '../types/catalogItem';
 import { Link } from 'react-router-dom';
+import type { ItemType, MenuItemType } from 'antd/es/menu/interface';
 
 const { SubMenu, Item } = Menu;
 
@@ -65,55 +66,39 @@ type CatalogProps = {
   onNavigate: () => void;
 };
 
-const Catalog = ({ onNavigate }: CatalogProps) => {
-  return (
-    <Menu className="catalog" mode="inline" selectable={false}>
-      {catalogItems.map(({ url, title, items }) =>
-        items ? (
-          <SubMenu
-            key={url}
-            title={
-              <Link to={url} onClick={onNavigate}>
-                {title}
-              </Link>
-            }
-          >
-            {items?.map(({ url, title, items }) =>
-              items ? (
-                <SubMenu
-                  key={url}
-                  title={
-                    <Link to={url} onClick={onNavigate}>
-                      {title}
-                    </Link>
-                  }
-                >
-                  {items?.map(({ url, title }) => (
-                    <Item key={url}>
-                      <Link to={url} onClick={onNavigate}>
-                        {title}
-                      </Link>
-                    </Item>
-                  ))}
-                </SubMenu>
-              ) : (
-                <Item key={url}>
-                  <Link to={url} onClick={onNavigate}>
-                    {title}
-                  </Link>
-                </Item>
-              )
-            )}
-          </SubMenu>
-        ) : (
-          <Item key={url}>
+const convertToMenuItems = (
+  items: CatalogItem[],
+  onNavigate: () => void
+): ItemType<MenuItemType>[] =>
+  items.map(({ url, title, items }) =>
+    items
+      ? {
+          key: url,
+          label: (
             <Link to={url} onClick={onNavigate}>
               {title}
             </Link>
-          </Item>
-        )
-      )}
-    </Menu>
+          ),
+          children: convertToMenuItems(items, onNavigate),
+        }
+      : {
+          key: url,
+          label: (
+            <Link to={url} onClick={onNavigate}>
+              {title}
+            </Link>
+          ),
+        }
+  );
+
+const Catalog = ({ onNavigate }: CatalogProps) => {
+  return (
+    <Menu
+      className="catalog"
+      mode="inline"
+      selectable={false}
+      items={convertToMenuItems(catalogItems, onNavigate)}
+    />
   );
 };
 

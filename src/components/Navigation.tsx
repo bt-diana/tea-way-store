@@ -72,29 +72,37 @@ const Navigation = ({ bottom }: NavigationProps) => {
     <nav className={bottom ? 'bottom-navigation' : 'navigation'}>
       {!bottom && <Logo />}
 
-      <Menu mode="horizontal" selectable={false} className="navigation-menu">
-        {NavItems.filter(({ menu }) => menu === bottom).map(
-          ({ key, url, title, activeIcon, icon, closeMenu, openCloseMenu }) => (
-            <Menu.Item
-              key={key}
-              icon={activeIcon && menuIsVisible ? activeIcon : icon}
-              onClick={() => {
-                if (url) {
-                  navigate(url);
-                }
-                if (openCloseMenu) {
-                  setMenuIsVisible((value) => !value);
-                }
-                if (closeMenu && !menuIsVisible) {
-                  setMenuIsVisible(false);
-                }
-              }}
-            >
-              {title}
-            </Menu.Item>
-          )
+      <Menu
+        mode="horizontal"
+        selectable={false}
+        className="navigation-menu"
+        items={NavItems.filter(({ menu }) => menu === bottom).map(
+          ({
+            key,
+            url,
+            title,
+            activeIcon,
+            icon,
+            closeMenu,
+            openCloseMenu,
+          }) => ({
+            key,
+            icon: activeIcon && menuIsVisible ? activeIcon : icon,
+            label: title,
+            onClick: () => {
+              if (url) {
+                navigate(url);
+              }
+              if (openCloseMenu) {
+                setMenuIsVisible((value) => !value);
+              }
+              if (closeMenu && !menuIsVisible) {
+                setMenuIsVisible(false);
+              }
+            },
+          })
         )}
-      </Menu>
+      />
 
       {bottom && (
         <PopUpMenu
