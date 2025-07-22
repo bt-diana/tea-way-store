@@ -14,10 +14,10 @@ const catalogItems: CatalogItem[] = [
       },
       {
         title: 'Пуэр',
-        url: '/catalog/tea/pu-erh',
+        url: '/catalog/tea/puerh',
         items: [
-          { title: 'Шу', url: '/catalog/tea/pu-erh/shu' },
-          { title: 'Шэн', url: '/catalog/tea/pu-erh/sheng' },
+          { title: 'Шу', url: '/catalog/tea/puerh/shu' },
+          { title: 'Шэн', url: '/catalog/tea/puerh/shen' },
         ],
       },
       {
@@ -50,7 +50,7 @@ const catalogItems: CatalogItem[] = [
     title: 'Приборы',
     url: '/catalog/tools',
     items: [
-      { title: 'Ножи для пуэра', url: '/catalog/tools/pu-erh-knives' },
+      { title: 'Ножи для пуэра', url: '/catalog/tools/puerh-knives' },
       {
         title: 'Инструменты для чайной церемонии',
         url: '/catalog/tools/ceremony',
