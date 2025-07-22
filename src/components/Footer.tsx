@@ -62,8 +62,8 @@ const Footer = () => {
         className="contacts-section"
       >
         <div className="contacts">
-          {contacts.map(({ icon, text, link }) => (
-            <Button type="link" icon={icon} href={link}>
+          {contacts.map(({ icon, text, link }, index) => (
+            <Button key={index} type="link" icon={icon} href={link}>
               {text}
             </Button>
           ))}
@@ -71,8 +71,14 @@ const Footer = () => {
       </Section>
       <Section className="socials-section">
         <div className="socials">
-          {socials.map(({ icon, link }) => (
-            <Button variant="link" color="primary" icon={icon} href={link} />
+          {socials.map(({ icon, link }, index) => (
+            <Button
+              key={index}
+              variant="link"
+              color="primary"
+              icon={icon}
+              href={link}
+            />
           ))}
         </div>
       </Section>

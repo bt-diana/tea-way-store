@@ -65,8 +65,13 @@ const sections: SectionData[] = [
 const MainPage = () => {
   return (
     <main>
-      {sections.map(({ title, TitleLevel, paragraph, children }) => (
-        <Section title={title} TitleLevel={TitleLevel} paragraph={paragraph}>
+      {sections.map(({ title, TitleLevel, paragraph, children }, index) => (
+        <Section
+          key={index}
+          title={title}
+          TitleLevel={TitleLevel}
+          paragraph={paragraph}
+        >
           {children}
         </Section>
       ))}

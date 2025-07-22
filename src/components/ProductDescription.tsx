@@ -24,19 +24,12 @@ const ProductDescription = ({
       <Descriptions title="Характеристики">
         {Object.entries(titles).map(([key, label]) => {
           const valueRaw = product[key as keyof Product];
-
           if (valueRaw == null) {
             return;
           }
-
-          let value;
-
-          if (Array.isArray(valueRaw)) {
-            value = valueRaw.join(',');
-          } else {
-            value = String(valueRaw);
-          }
-
+          const value = Array.isArray(valueRaw)
+            ? valueRaw.join(',')
+            : String(valueRaw);
           return (
             <Descriptions.Item key={key} label={label}>
               {value}

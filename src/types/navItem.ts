@@ -7,5 +7,6 @@ export type NavItem = {
   activeIcon?: ReactNode;
   menu?: boolean;
   url?: string;
-  onPress?: () => void;
+  closeMenu?: boolean;
+  openCloseMenu?: boolean;
 };

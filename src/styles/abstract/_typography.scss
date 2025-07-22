@@ -1,7 +1,7 @@
 @use '../abstract/colors';
 
 @mixin logo() {
-  font-family: ChowFun;
+  font-family: ChowFun, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -15,7 +15,7 @@
 }
 
 @mixin h1() {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
@@ -28,7 +28,7 @@ h1 {
 }
 
 @mixin h2() {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -41,7 +41,7 @@ h2 {
 }
 
 @mixin h3() {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -54,7 +54,7 @@ h3 {
 }
 
 @mixin h4() {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -67,7 +67,7 @@ h4 {
 }
 
 @mixin h5() {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
@@ -80,7 +80,7 @@ h5 {
 }
 
 @mixin paragraph() {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -94,7 +94,7 @@ p,
 }
 
 @mixin caption() {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -107,7 +107,7 @@ p,
 }
 
 @mixin select() {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
