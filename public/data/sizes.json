@@ -19,25 +19,26 @@
   },
   {
     "id": "packaging1000",
-    "name": null,
     "value": 1,
     "unit": "кг"
   },
   {
+    "id": "packaging250",
+    "value": 250,
+    "unit": "гр"
+  },
+  {
     "id": "packaging200",
-    "name": null,
     "value": 200,
     "unit": "гр"
   },
   {
     "id": "packaging100",
-    "name": null,
     "value": 100,
     "unit": "гр"
   },
   {
     "id": "item1",
-    "name": null,
     "value": 1,
     "unit": "шт."
   }
