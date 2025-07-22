@@ -30,14 +30,14 @@ const NavItems: NavItem[] = [
     key: 'main',
     title: 'Главная',
     icon: <HomeOutlined />,
-    menu: true,
+    bottom: true,
     closeMenu: true,
   },
   {
     key: 'search',
     title: 'Поиск',
     icon: <SearchOutlined />,
-    menu: true,
+    bottom: true,
     openCloseMenu: true,
   },
   {
@@ -45,7 +45,7 @@ const NavItems: NavItem[] = [
     title: 'Каталог',
     icon: <MenuOutlined />,
     activeIcon: <CloseOutlined />,
-    menu: true,
+    bottom: true,
     openCloseMenu: true,
   },
   {
@@ -53,14 +53,14 @@ const NavItems: NavItem[] = [
     key: 'cart',
     icon: <ShoppingCartOutlined />,
     title: 'Корзина',
-    menu: true,
+    bottom: true,
     closeMenu: true,
   },
   {
     key: 'lang',
     title: <LanguagePicker>Язык</LanguagePicker>,
     icon: <GlobalOutlined />,
-    menu: true,
+    bottom: true,
   },
 ];
 
@@ -80,7 +80,7 @@ const Navigation = ({ bottom }: NavigationProps) => {
         mode="horizontal"
         selectable={false}
         className="navigation-menu"
-        items={NavItems.filter(({ menu }) => menu === bottom).map(
+        items={NavItems.filter((item) => !item.bottom === !bottom).map(
           ({
             key,
             url,

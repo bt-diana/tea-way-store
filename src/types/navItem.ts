@@ -5,7 +5,7 @@ export type NavItem = {
   title: string | ReactNode;
   icon?: ReactNode;
   activeIcon?: ReactNode;
-  menu?: boolean;
+  bottom?: boolean;
   url?: string;
   closeMenu?: boolean;
   openCloseMenu?: boolean;
