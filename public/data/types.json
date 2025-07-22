@@ -6,16 +6,16 @@
   {
     "id": "puerh",
     "name": "пуэр",
-    "parent": "tea"
+    "parentTypeId": "tea"
   },
   {
     "id": "shen",
     "name": "шен",
-    "parent": "puerh"
+    "parentTypeId": "puerh"
   },
   {
     "id": "shu",
     "name": "шу",
-    "parent": "puerh"
+    "parentTypeId": "puerh"
   }
 ]
