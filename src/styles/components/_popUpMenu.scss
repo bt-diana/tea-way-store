@@ -4,7 +4,7 @@
   overflow: hidden;
 }
 
-.popup-menu {    
+.popup-menu {
   position: absolute !important;
   margin: unset !important;
   top: unset !important;
@@ -24,7 +24,7 @@
     height: 100% !important;
     border-radius: 8px 8px 0 0;
   }
-  
+
   .ant-modal-body {
     display: flex;
     flex-direction: column;
@@ -45,5 +45,4 @@
       flex: 1 0 0;
     }
   }
-
 }

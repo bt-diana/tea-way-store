@@ -2,7 +2,8 @@
 @use '../abstract/colors';
 @use '../abstract/sizes';
 
-.navigation, .bottom-navigation {
+.navigation,
+.bottom-navigation {
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -10,7 +11,7 @@
   padding: 0px 8px;
   background: colors.$background;
   width: 100%;
-  
+
   .ant-menu-root {
     border: none;
     gap: 8px;
@@ -43,7 +44,6 @@
   .ant-menu-root {
     justify-content: flex-end;
   }
-
 }
 
 .bottom-navigation {

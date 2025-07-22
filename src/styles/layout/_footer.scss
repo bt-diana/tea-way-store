@@ -14,7 +14,8 @@ footer {
     align-items: flex-start;
     gap: 10px;
 
-    a, button {
+    a,
+    button {
       padding: unset;
       margin: unset;
     }
@@ -26,5 +27,5 @@ footer {
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-  }  
+  }
 }

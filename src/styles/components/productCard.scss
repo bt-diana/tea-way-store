@@ -1,6 +1,7 @@
 @use '../abstract/typography';
 
-.product-card, .product {
+.product-card,
+.product {
   display: flex;
   flex-direction: column;
 
@@ -59,13 +60,14 @@
   }
 
   .product-card-price {
-    flex: 1
+    flex: 1;
   }
 
-  .product-card-amount, .product-card-add {
-    flex: 1
+  .product-card-amount,
+  .product-card-add {
+    flex: 1;
   }
-  
+
   .ant-card-head {
     padding: unset;
   }
