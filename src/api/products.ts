@@ -1,7 +1,7 @@
 import type { Product, ProductRaw } from '../types/product';
 import { getProductDataById, getProductDataByIds } from './productData';
 import { getSizesPricesByProductId } from './productSizesPrices';
-import { getTypeById } from './productTypes';
+import { getChildrenTypesByParentId, getTypeById } from './productTypes';
 
 const API_URL = process.env.VITE_API_URL!;
 const PRODUCTS_PATH = process.env.VITE_API_PRODUCT_PATH!;
@@ -66,15 +66,29 @@ export const getProducts = async (
       if (!res.ok) throw Error(res.statusText);
       return res.json();
     })
-    .then((products: ProductRaw[]) => {
+    .then(async (products: ProductRaw[]) => {
+      const mappedParams = params;
+      if (mappedParams?.typeId) {
+        mappedParams.typeId = (
+          await getChildrenTypesByParentId(String(mappedParams.typeId))
+        ).map(({ id }) => id);
+      }
+      console.log(mappedParams);
       return products.filter((product: ProductRaw) => {
-        if (!params) return true;
-        for (const param in params) {
-          if (
-            product[param as keyof ProductRaw] !==
-            params[param as keyof ProductRaw]
-          )
+        for (const param in mappedParams) {
+          const paramsValue = mappedParams[param as keyof ProductRaw];
+          const productValue = product[param as keyof ProductRaw];
+
+          if (paramsValue === undefined) {
+            continue;
+          }
+          if (Array.isArray(paramsValue)) {
+            if (paramsValue.includes(productValue)) {
+              continue;
+            }
             return false;
+          }
+          if (productValue !== paramsValue) return false;
         }
         return true;
       });

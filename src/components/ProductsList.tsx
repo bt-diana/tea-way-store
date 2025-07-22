@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react';
 import { getProducts } from '../api/products';
-import type { Product, ProductRaw } from '../types/product';
+import type { Product } from '../types/product';
 import ProductCard from './ProductCard';
 
 type ProductsListProps = {
+  typeId?: string;
   popular?: boolean;
 };
 
-const ProductsList = ({ popular }: ProductsListProps) => {
+const ProductsList = ({ typeId, popular }: ProductsListProps) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    const params = { ['popular' as keyof ProductRaw]: popular };
+    const params = { typeId, popular };
     getProducts(params).then((res) => {
       setProducts(res);
     });
-  }, [popular]);
+  }, [typeId, popular]);
 
   return (
     <div className="products-list">
