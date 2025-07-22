@@ -38,10 +38,18 @@
   max-width: 200px;
   width: calc(50% - 16px);
 
-  .ant-card-cover img {
-    width: inherit;
-    border-radius: inherit;
+  .ant-card-cover 
+  {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+  
+    img {
+      width: inherit;
+      border-radius: inherit;
+    }
   }
+
 
   .ant-select-selection-item {
     @include typography.select;

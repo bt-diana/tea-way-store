@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Image } from 'antd';
+import { Empty } from "antd";
 
 type ProductCoverProps = {
   id: string;
@@ -14,6 +15,12 @@ const ProductCover = ({
   cover,
   productPageView,
 }: ProductCoverProps) => {
+  if (!cover) {
+    return <Empty style={{
+      marginInline: 'unset'
+    }} />;
+  }
+
   const coverSrc = `https://drive.google.com/thumbnail?id=${cover}`;
 
   if (productPageView) {
