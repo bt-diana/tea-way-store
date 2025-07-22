@@ -19,15 +19,13 @@ const ProductCover = ({
     return <Empty />;
   }
 
-  const coverSrc = `https://drive.google.com/thumbnail?id=${cover}`;
-
   if (productPageView) {
-    return <Image alt={name} src={coverSrc} />;
+    return <Image alt={name} src={cover} />;
   }
 
   return (
     <Link to={`/products/${id}`}>
-      <img alt={name} src={coverSrc} />
+      <img alt={name} src={cover} />
     </Link>
   );
 };
