@@ -4,8 +4,8 @@ export type ProductRaw = {
   id: string;
   name: string;
   typeId: string;
-  cover: string;
-  description: string;
+  cover?: string;
+  description?: string;
   year?: number;
   regionId?: string;
   tastesId?: string[];
@@ -20,8 +20,8 @@ export type Product = {
   id: string;
   name: string;
   type: string;
-  cover: string;
-  description: string;
+  cover?: string;
+  description?: string;
   sizesPrices: ProductSizePrice[];
   year?: number;
   region?: string;
