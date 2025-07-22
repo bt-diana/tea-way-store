@@ -43,6 +43,10 @@
     aspect-ratio: 1;
     display: flex;
     align-items: center;
+
+    .ant-empty {
+      margin-inline: unset,
+    }
   
     img {
       width: inherit;
