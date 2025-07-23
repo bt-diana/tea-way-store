@@ -3,12 +3,17 @@
 
 
 .catalog-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+
   .catalog-tag {
     @include typography.paragraph;
     background-color: colors.$tag-background;
     color: colors.$tag-text;
     border: none;
     border-radius: 100px;
-    padding: 8px 16px;
+    padding: 4px 8px;
+    margin: unset;
   }
 }
