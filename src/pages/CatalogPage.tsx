@@ -4,25 +4,29 @@ import { useEffect, useState } from 'react';
 import ProductsList from '../components/ProductsList';
 import { getTypeById } from '../api/productTypes';
 import { Title } from '../types/titile';
+import type { ProductType } from '../types/productType';
+import ResourseNotFoundPage from './ResourseNotFoundPage';
 
 const CatalogPage = () => {
   const { id } = useParams();
-  const [typeName, setTypeName] = useState<string>();
+  const [type, setType] = useState<ProductType | undefined>();
 
   useEffect(() => {
     if (id) {
       getTypeById(id).then((type) => {
-        if (type?.name) {
-          setTypeName(type.name);
-        }
+        setType(type);
       });
     }
-  }, [id, setTypeName]);
+  }, [id, setType]);
+
+  if (!type) {
+    return <ResourseNotFoundPage />;
+  }
 
   return (
     <main>
-      <Section title={typeName} TitleLevel={Title.h1}>
-        <ProductsList typeId={id} />
+      <Section title={type.name} TitleLevel={Title.h1}>
+        <ProductsList typeId={type.id} />
       </Section>
     </main>
   );
