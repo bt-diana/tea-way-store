@@ -23,7 +23,7 @@ const ProductsList = ({
     getProducts(params).then((res) => {
       setProducts(res);
     });
-  }, [typeId, popular, amateur]);
+  }, [typeId, popular, amateur, sets]);
 
   return (
     <div className="products-list">
