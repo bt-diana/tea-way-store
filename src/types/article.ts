@@ -1,5 +1,4 @@
 export type ArticleSection = {
-  id: string;
   title: string;
   text: string;
   images?: string[];
@@ -10,5 +9,6 @@ export type Article = {
   title: string;
   description: string;
   cover: string;
+  forMainPage?: boolean;
   sections: ArticleSection[];
 };
