@@ -1,7 +1,12 @@
+export type Image = {
+  name: string;
+  src: string;
+};
+
 export type ArticleSection = {
   title: string;
   text: string;
-  images?: string[];
+  images?: Image[];
 };
 
 export type Article = {

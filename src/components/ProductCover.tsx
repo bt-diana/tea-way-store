@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Image } from 'antd';
-import { Empty } from 'antd';
+import { Image, Empty } from 'antd';
 
 type ProductCoverProps = {
   id: string;

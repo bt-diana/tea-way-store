@@ -1,0 +1,11 @@
+.article-images-carousel {
+  .slick-arrow {
+    height: 100%;
+    width: unset;
+    padding: 0 20px;
+  }
+
+  .slick-arrow::after {
+    position: static;
+  }
+}
