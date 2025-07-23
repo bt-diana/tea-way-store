@@ -15,8 +15,26 @@ export const getChildrenTypesByParentId = (parentId: string) => {
         throw Error(`Parent type id=${parentId}`);
       }
 
-      const result: ProductType[] = [parentType];
+      const children = types.filter(
+        ({ parentTypeId }) => parentTypeId === parentType.id
+      );
+      return children;
+    });
+};
 
+export const getAllChildrenTypesByParentId = (parentId: string) => {
+  return fetch(API_URL + PRODUCT_TYPES_PATH)
+    .then((res) => {
+      if (!res.ok) throw Error(res.statusText);
+      return res.json();
+    })
+    .then((types: ProductType[]) => {
+      const parentType = types.find(({ id }) => id === parentId);
+      if (!parentType) {
+        throw Error(`Parent type id=${parentId}`);
+      }
+
+      const result: ProductType[] = [];
       const collectChildren = (currentParentId: string) => {
         const children = types.filter(
           ({ parentTypeId }) => parentTypeId === currentParentId
