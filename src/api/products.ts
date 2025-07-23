@@ -73,7 +73,6 @@ export const getProducts = async (
           await getChildrenTypesByParentId(String(mappedParams.typeId))
         ).map(({ id }) => id);
       }
-      console.log(mappedParams);
       return products.filter((product: ProductRaw) => {
         for (const param in mappedParams) {
           const paramsValue = mappedParams[param as keyof ProductRaw];
