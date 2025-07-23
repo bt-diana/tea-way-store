@@ -60,11 +60,6 @@
       }
     }
   }
-
-
-  .ant-select-selection-item {
-    @include typography.select;
-  }
 }
 
 .product {
@@ -98,4 +93,8 @@
   .ant-card-body {
     gap: 16px;
   }
+}
+
+.ant-select-selection-item, .ant-select-item-option-content {
+  @include typography.select;
 }
