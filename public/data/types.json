@@ -11,12 +11,12 @@
   },
   {
     "id": "shen",
-    "name": "шен",
+    "name": "шен пуэр",
     "parentTypeId": "puerh"
   },
   {
     "id": "shu",
-    "name": "шу",
+    "name": "шу пуэр",
     "parentTypeId": "puerh"
   }
 ]
