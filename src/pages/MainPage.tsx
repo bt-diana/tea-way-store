@@ -1,3 +1,4 @@
+import ArticlesList from '../components/ArticlesList';
 import ProductsList from '../components/ProductsList';
 import Section from '../components/Section';
 import TilesGroup from '../components/TilesGroup';
@@ -59,6 +60,10 @@ const sections: SectionData[] = [
   {
     title: 'Популярное',
     children: <ProductsList popular={true} />,
+  },
+  {
+    title: 'Узнайте больше',
+    children: <ArticlesList forMainPage />,
   },
 ];
 
