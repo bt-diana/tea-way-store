@@ -1,7 +1,7 @@
 import type { Product, ProductRaw } from '../types/product';
 import { getProductDataById, getProductDataByIds } from './productData';
 import { getSizesPricesByProductId } from './productSizesPrices';
-import { getChildrenTypesByParentId, getTypeById } from './productTypes';
+import { getAllChildrenTypesByParentId, getTypeById } from './productTypes';
 
 const API_URL = process.env.VITE_API_URL!;
 const PRODUCTS_PATH = process.env.VITE_API_PRODUCT_PATH!;
@@ -69,9 +69,13 @@ export const getProducts = async (
     .then(async (products: ProductRaw[]) => {
       const mappedParams = params;
       if (mappedParams?.typeId) {
-        mappedParams.typeId = (
-          await getChildrenTypesByParentId(String(mappedParams.typeId))
-        ).map(({ id }) => id);
+        const parentTypeId = String(mappedParams.typeId);
+        mappedParams.typeId = [
+          parentTypeId,
+          ...(
+            await getAllChildrenTypesByParentId(String(mappedParams.typeId))
+          ).map(({ id }) => id),
+        ];
       }
       return products.filter((product: ProductRaw) => {
         for (const param in mappedParams) {
