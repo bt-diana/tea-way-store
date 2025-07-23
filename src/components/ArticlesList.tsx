@@ -13,7 +13,6 @@ const ArticlesList = ({ forMainPage }: ArticlesListProps) => {
   useEffect(() => {
     const params = { forMainPage };
     getAllArticles(params).then((res) => {
-      console.log(res);
       setArticles(res);
     });
   }, [forMainPage]);
