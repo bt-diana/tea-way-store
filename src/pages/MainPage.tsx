@@ -59,7 +59,15 @@ const sections: SectionData[] = [
   },
   {
     title: 'Популярное',
-    children: <ProductsList popular={true} />,
+    children: <ProductsList popular />,
+  },
+  {
+    title: 'Для начинающих ценителей чая',
+    children: <ProductsList amateur />,
+  },
+  {
+    title: 'Наборы',
+    children: <ProductsList sets />,
   },
   {
     title: 'Узнайте больше',

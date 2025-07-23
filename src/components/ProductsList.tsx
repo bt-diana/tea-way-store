@@ -6,17 +6,24 @@ import ProductCard from './ProductCard';
 type ProductsListProps = {
   typeId?: string;
   popular?: boolean;
+  amateur?: boolean;
+  sets?: boolean;
 };
 
-const ProductsList = ({ typeId, popular }: ProductsListProps) => {
+const ProductsList = ({
+  typeId,
+  popular,
+  amateur,
+  sets,
+}: ProductsListProps) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    const params = { typeId, popular };
+    const params = { typeId, popular, amateur, sets };
     getProducts(params).then((res) => {
       setProducts(res);
     });
-  }, [typeId, popular]);
+  }, [typeId, popular, amateur]);
 
   return (
     <div className="products-list">

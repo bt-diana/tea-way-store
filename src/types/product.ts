@@ -14,6 +14,7 @@ export type ProductRaw = {
   fillingsId?: string[];
   popular?: boolean;
   amateur?: boolean;
+  sets?: boolean;
 };
 
 export type Product = {
