@@ -9,7 +9,6 @@ import ResourceNotFoundPage from './ResourceNotFoundPage';
 import { Tag } from 'antd';
 
 const CatalogPage = () => {
-  const { pathname } = useLocation();
   const { id } = useParams();
   const [type, setType] = useState<ProductType | undefined>();
   const [childrenTypes, setChildrenTypes] = useState<
@@ -42,10 +41,8 @@ const CatalogPage = () => {
       >
         <div className="catalog-tags">
           {childrenTypes?.map(({ id, name }) => (
-            <Link to={`${pathname}/${id}`}>
-              <Tag key={id} className="catalog-tag">
-                {name}
-              </Tag>
+            <Link key={id} to={`/catalog/${id}`}>
+              <Tag className="catalog-tag">{name}</Tag>
             </Link>
           ))}
         </div>
