@@ -1,6 +1,6 @@
 import { Empty } from 'antd';
 
-const ResourseNotFoundPage = () => {
+const ResourceNotFoundPage = () => {
   return (
     <main style={{ height: '100%' }}>
       <Empty style={{ margin: 'auto' }} />
@@ -8,4 +8,4 @@ const ResourseNotFoundPage = () => {
   );
 };
 
-export default ResourseNotFoundPage;
+export default ResourceNotFoundPage;

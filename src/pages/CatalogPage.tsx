@@ -5,7 +5,7 @@ import ProductsList from '../components/ProductsList';
 import { getTypeById } from '../api/productTypes';
 import { Title } from '../types/titile';
 import type { ProductType } from '../types/productType';
-import ResourseNotFoundPage from './ResourseNotFoundPage';
+import ResourceNotFoundPage from './ResourceNotFoundPage';
 
 const CatalogPage = () => {
   const { id } = useParams();
@@ -20,7 +20,7 @@ const CatalogPage = () => {
   }, [id, setType]);
 
   if (!type) {
-    return <ResourseNotFoundPage />;
+    return <ResourceNotFoundPage />;
   }
 
   return (
