@@ -1,103 +1,62 @@
 import { Menu } from 'antd';
-import type { CatalogItem } from '../types/catalogItem';
 import { Link } from 'react-router-dom';
 import type { ItemType, MenuItemType } from 'antd/es/menu/interface';
-
-const catalogItems: CatalogItem[] = [
-  {
-    title: 'Чай',
-    url: '/catalog/tea',
-    items: [
-      {
-        title: 'Зеленый чай',
-        url: '/catalog/tea/green',
-      },
-      {
-        title: 'Пуэр',
-        url: '/catalog/tea/puerh',
-        items: [
-          { title: 'Шу', url: '/catalog/tea/puerh/shu' },
-          { title: 'Шэн', url: '/catalog/tea/puerh/shen' },
-        ],
-      },
-      {
-        title: 'Красный чай',
-        url: '/catalog/tea/red',
-      },
-      {
-        title: 'Черный чай',
-        url: '/catalog/tea/black',
-      },
-    ],
-  },
-  {
-    title: 'Посуда',
-    url: '/catalog/teaware',
-    items: [
-      { title: 'Пиалы', url: '/catalog/teaware/bowls' },
-      {
-        title: 'Чайники',
-        url: '/catalog/teaware/teapots',
-        items: [
-          { title: 'Исинская глина', url: '/catalog/teaware/teapots/yixing' },
-          { title: 'Керамика', url: '/catalog/teaware/teapots/ceramic' },
-          { title: 'Стекло', url: '/catalog/teaware/teapots/glass' },
-        ],
-      },
-    ],
-  },
-  {
-    title: 'Приборы',
-    url: '/catalog/tools',
-    items: [
-      { title: 'Ножи для пуэра', url: '/catalog/tools/puerh-knives' },
-      {
-        title: 'Инструменты для чайной церемонии',
-        url: '/catalog/tools/ceremony',
-      },
-      { title: 'Чабани', url: '/catalog/tools/chabans' },
-    ],
-  },
-];
+import { getAllTypesWithChildren } from '../api/productTypes';
+import { useEffect, useState } from 'react';
+import type { ProductTypewithChildren } from '../types/productType';
 
 type CatalogProps = {
   onNavigate: () => void;
 };
 
 const convertToMenuItems = (
-  items: CatalogItem[],
+  items: ProductTypewithChildren[],
   onNavigate: () => void
 ): ItemType<MenuItemType>[] =>
-  items.map(({ url, title, items }) =>
-    items
-      ? {
-          key: url,
-          label: (
-            <Link to={url} onClick={onNavigate}>
-              {title}
-            </Link>
-          ),
-          children: convertToMenuItems(items, onNavigate),
-        }
-      : {
-          key: url,
-          label: (
-            <Link to={url} onClick={onNavigate}>
-              {title}
-            </Link>
-          ),
-        }
-  );
+  items.map(({ id, name, children }) => {
+    const src = `/catalog/${id}`;
+
+    if (children?.length) {
+      return {
+        key: id,
+        label: (
+          <Link to={src} onClick={onNavigate}>
+            {name}
+          </Link>
+        ),
+        children: convertToMenuItems(children, onNavigate),
+      };
+    }
+
+    return {
+      key: id,
+      label: (
+        <Link to={src} onClick={onNavigate}>
+          {name}
+        </Link>
+      ),
+    };
+  });
 
 const Catalog = ({ onNavigate }: CatalogProps) => {
-  return (
-    <Menu
-      className="catalog"
-      mode="inline"
-      selectable={false}
-      items={convertToMenuItems(catalogItems, onNavigate)}
-    />
-  );
+  const [types, setTypes] = useState<ProductTypewithChildren[]>();
+
+  useEffect(() => {
+    getAllTypesWithChildren().then((res) => {
+      setTypes(res);
+    });
+  }, []);
+
+  if (types) {
+    return (
+      <Menu
+        className="catalog"
+        mode="inline"
+        selectable={false}
+        items={convertToMenuItems(types, onNavigate)}
+      />
+    );
+  }
 };
 
 export default Catalog;

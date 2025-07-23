@@ -4,3 +4,7 @@ export type ProductType = {
   description?: string;
   parentTypeId?: string;
 };
+
+export type ProductTypewithChildren = ProductType & {
+  children?: ProductType[];
+};
