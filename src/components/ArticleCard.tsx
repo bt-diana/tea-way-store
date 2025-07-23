@@ -4,17 +4,15 @@ import type { Article } from '../types/article';
 
 type ArticleCardProps = {
   article: Article;
-  showDescription?: boolean;
 };
 
 const ArticleCard = ({
   article: { id, title, description, cover },
-  showDescription,
 }: ArticleCardProps) => {
   return (
-    <Link to={`/articles/${id}`}>
-      <Card cover={<img alt={title} src={cover} />} className="article-card">
-        <Card.Meta title={title} description={showDescription && description} />
+    <Link to={`/articles/${id}`} className="article-card">
+      <Card cover={<img alt={title} src={cover} />}>
+        <Card.Meta title={title} description={description} />
       </Card>
     </Link>
   );

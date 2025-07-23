@@ -5,10 +5,9 @@ import type { Article } from '../types/article';
 
 type ArticlesListProps = {
   forMainPage?: boolean;
-  showDescription?: boolean;
 };
 
-const ArticlesList = ({ forMainPage, showDescription }: ArticlesListProps) => {
+const ArticlesList = ({ forMainPage }: ArticlesListProps) => {
   const [articles, setArticles] = useState<Article[]>();
 
   useEffect(() => {
@@ -22,11 +21,7 @@ const ArticlesList = ({ forMainPage, showDescription }: ArticlesListProps) => {
   return (
     <div className="articles-list">
       {articles?.map((article) => (
-        <ArticleCard
-          key={article.id}
-          article={article}
-          showDescription={showDescription}
-        />
+        <ArticleCard key={article.id} article={article} />
       ))}
     </div>
   );
