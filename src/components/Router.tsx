@@ -8,6 +8,7 @@ import ArticlePage from '../pages/ArticlePage';
 import ArticlesListPage from '../pages/ArticlesListPage';
 import CartPage from '../pages/CartPage';
 import ProductPage from '../pages/ProductPage';
+import ResourceNotFoundPage from '../pages/ResourceNotFoundPage';
 
 const Router = () => {
   return (
@@ -34,6 +35,7 @@ const Router = () => {
             <Route index element={<ArticlesListPage />} />
             <Route path=":id" element={<ArticlePage />} />
           </Route>
+          <Route path="*" element={<ResourceNotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
