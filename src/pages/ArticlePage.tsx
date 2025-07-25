@@ -8,33 +8,39 @@ import { getArticleById } from '../api/articles';
 
 const ArticlePage = () => {
   const { id } = useParams();
-  const [article, setArticle] = useState<Article>();
+  const [article, setArticle] = useState<Article | null>();
 
   useEffect(() => {
     if (id) {
       getArticleById(id).then((res) => {
-        setArticle(res);
+        setArticle(res?.sections?.length ? res : null);
       });
     }
-  });
+  }, [id]);
 
-  if (!article?.sections?.length) {
+  if (article === null) {
     return <ResourceNotFoundPage />;
   }
 
-  return (
-    <main>
-      {article.sections.map(({ title, text, images }, index) => (
-        <Section key={index} title={title} paragraph={text}>
-          <Carousel arrows infinite={false} className="article-images-carousel">
-            {images?.map(({ name, src }, index) => (
-              <Image key={index} alt={name} src={src} />
-            ))}
-          </Carousel>
-        </Section>
-      ))}
-    </main>
-  );
+  if (article) {
+    return (
+      <main>
+        {article.sections.map(({ title, text, images }, index) => (
+          <Section key={index} title={title} paragraph={text}>
+            <Carousel
+              arrows
+              infinite={false}
+              className="article-images-carousel"
+            >
+              {images?.map(({ name, src }, index) => (
+                <Image key={index} alt={name} src={src} />
+              ))}
+            </Carousel>
+          </Section>
+        ))}
+      </main>
+    );
+  }
 };
 
 export default ArticlePage;

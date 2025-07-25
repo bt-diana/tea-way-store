@@ -10,48 +10,48 @@ import { Tag } from 'antd';
 
 const CatalogPage = () => {
   const { id } = useParams();
-  const [type, setType] = useState<ProductType | undefined>();
-  const [childrenTypes, setChildrenTypes] = useState<
-    ProductType[] | undefined
-  >();
+  const [type, setType] = useState<ProductType | null>();
+  const [childrenTypes, setChildrenTypes] = useState<ProductType[] | null>();
 
   useEffect(() => {
     if (id) {
       getTypeById(id).then((type) => {
-        setType(type);
+        setType(type ?? null);
         if (type) {
           getChildrenTypesByParentId(type.id).then((types) => {
-            setChildrenTypes(types);
+            setChildrenTypes(types?.length ? types : null);
           });
         }
       });
     }
   }, [id, setType]);
 
-  if (!type) {
+  if (type === null) {
     return <ResourceNotFoundPage />;
   }
 
-  return (
-    <main>
-      <Section
-        title={type.name}
-        TitleLevel={Title.h1}
-        paragraph={type.description}
-      >
-        <div className="catalog-tags">
-          {childrenTypes?.map(({ id, name }) => (
-            <Link key={id} to={`/catalog/${id}`}>
-              <Tag className="catalog-tag">{name}</Tag>
-            </Link>
-          ))}
-        </div>
-      </Section>
-      <Section>
-        <ProductsList typeId={type.id} />
-      </Section>
-    </main>
-  );
+  if (type) {
+    return (
+      <main>
+        <Section
+          title={type.name}
+          TitleLevel={Title.h1}
+          paragraph={type.description}
+        >
+          <div className="catalog-tags">
+            {childrenTypes?.map(({ id, name }) => (
+              <Link key={id} to={`/catalog/${id}`}>
+                <Tag className="catalog-tag">{name}</Tag>
+              </Link>
+            ))}
+          </div>
+        </Section>
+        <Section>
+          <ProductsList typeId={type.id} />
+        </Section>
+      </main>
+    );
+  }
 };
 
 export default CatalogPage;

@@ -10,36 +10,32 @@ type TilesGroupProps = {
 };
 
 const TilesGroup = ({ parentTypeId, carousel }: TilesGroupProps) => {
-  const [childrenTypes, setChildrenTypes] = useState<
-    ProductType[] | undefined
-  >();
+  const [childrenTypes, setChildrenTypes] = useState<ProductType[] | null>();
 
   useEffect(() => {
     getChildrenTypesByParentId(parentTypeId).then((types) => {
-      if (types?.length) {
-        setChildrenTypes(types);
-      } else {
-        setChildrenTypes(undefined);
-      }
+      setChildrenTypes(types?.length ? types : null);
     });
   }, [parentTypeId]);
 
-  if (!childrenTypes) {
+  if (childrenTypes === null) {
     return <ResourceNotFoundPage />;
   }
 
-  return (
-    <div className={carousel ? 'tile-carousel' : 'tile-group'}>
-      {childrenTypes.map(({ id, name, imageSrc }) => (
-        <Tile
-          key={id}
-          url={`/catalog/${id}`}
-          label={name}
-          imageSrc={imageSrc}
-        />
-      ))}
-    </div>
-  );
+  if (childrenTypes) {
+    return (
+      <div className={carousel ? 'tile-carousel' : 'tile-group'}>
+        {childrenTypes.map(({ id, name, imageSrc }) => (
+          <Tile
+            key={id}
+            url={`/catalog/${id}`}
+            label={name}
+            imageSrc={imageSrc}
+          />
+        ))}
+      </div>
+    );
+  }
 };
 
 export default TilesGroup;
