@@ -3,44 +3,7 @@ import ProductsList from '../components/ProductsList';
 import Section from '../components/Section';
 import TilesGroup from '../components/TilesGroup';
 import type { SectionData } from '../types/sectionData';
-import type { TileData } from '../types/tileData';
 import { Title } from '../types/titile';
-
-const teaTiles: TileData[] = [
-  {
-    url: '/catalog/teaware/bowls',
-    label: 'Пуэр',
-    imageSrc: '/images/bowlTileImage.png',
-  },
-  {
-    url: '/catalog/teaware/shepherds',
-    label: 'Красный',
-    imageSrc: '/images/shepherdTileImage.png',
-  },
-  {
-    url: '/catalog/teaware/teapots/yixing',
-    label: 'Белый',
-    imageSrc: '/images/teapotTileIamge.png',
-  },
-];
-
-const teawareTiles: TileData[] = [
-  {
-    url: '/catalog/teaware/bowls',
-    label: 'Пиалы',
-    imageSrc: '/images/bowlTileImage.png',
-  },
-  {
-    url: '/catalog/teaware/shepherds',
-    label: 'Чабани',
-    imageSrc: '/images/shepherdTileImage.png',
-  },
-  {
-    url: '/catalog/teaware/teapots/yixing',
-    label: 'Исинские чайники',
-    imageSrc: '/images/teapotTileIamge.png',
-  },
-];
 
 const sections: SectionData[] = [
   {
@@ -51,11 +14,11 @@ const sections: SectionData[] = [
   },
   {
     title: 'Различные виды чая',
-    children: <TilesGroup tiles={teaTiles} carousel />,
+    children: <TilesGroup parentTypeId="tea" carousel />,
   },
   {
     title: 'Всё для чайной церемонии',
-    children: <TilesGroup tiles={teawareTiles} />,
+    children: <TilesGroup parentTypeId="teawear" />,
   },
   {
     title: 'Популярное',

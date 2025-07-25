@@ -1,16 +1,42 @@
+import { useEffect, useState } from 'react';
+import { getChildrenTypesByParentId } from '../api/productTypes';
+import type { ProductType } from '../types/productType';
 import Tile from './Tile';
-import type { TileData } from '../types/tileData';
+import ResourceNotFoundPage from '../pages/ResourceNotFoundPage';
 
 type TilesGroupProps = {
-  tiles: TileData[];
+  parentTypeId: string;
   carousel?: boolean;
 };
 
-const TilesGroup = ({ tiles, carousel }: TilesGroupProps) => {
+const TilesGroup = ({ parentTypeId, carousel }: TilesGroupProps) => {
+  const [childrenTypes, setChildrenTypes] = useState<
+    ProductType[] | undefined
+  >();
+
+  useEffect(() => {
+    getChildrenTypesByParentId(parentTypeId).then((types) => {
+      if (types?.length) {
+        setChildrenTypes(types);
+      } else {
+        setChildrenTypes(undefined);
+      }
+    });
+  }, [parentTypeId]);
+
+  if (!childrenTypes) {
+    return <ResourceNotFoundPage />;
+  }
+
   return (
     <div className={carousel ? 'tile-carousel' : 'tile-group'}>
-      {tiles.map(({ url, label, imageSrc }) => (
-        <Tile key={url} url={url} label={label} imageSrc={imageSrc} />
+      {childrenTypes.map(({ id, name, imageSrc }) => (
+        <Tile
+          key={id}
+          url={`/catalog/${id}`}
+          label={name}
+          imageSrc={imageSrc}
+        />
       ))}
     </div>
   );
