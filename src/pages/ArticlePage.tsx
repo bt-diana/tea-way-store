@@ -25,6 +25,7 @@ const ArticlePage = () => {
   if (article) {
     return (
       <main>
+        <h1>{article.title}</h1>
         {article.sections.map(({ title, text, images }, index) => (
           <Section key={index} title={title} paragraph={text}>
             <Carousel
