@@ -11,13 +11,18 @@
   },
   {
     "id": "shen",
-    "name": "шен пуэр",
+    "name": "шен",
     "parentTypeId": "puerh"
   },
   {
     "id": "shu",
-    "name": "шу пуэр",
+    "name": "шу",
     "parentTypeId": "puerh"
+  },
+  {
+    "id": "white",
+    "name": "белый",
+    "parentTypeId": "tea"
   },
   {
     "id": "green",
@@ -25,8 +30,18 @@
     "parentTypeId": "tea"
   },
   {
-    "id": "white",
-    "name": "белый",
+    "id": "red",
+    "name": "красный",
+    "parentTypeId": "tea"
+  },
+  {
+    "id": "black",
+    "name": "черный",
+    "parentTypeId": "tea"
+  },
+  {
+    "id": "oolong",
+    "name": "улун",
     "parentTypeId": "tea"
   },
   {
@@ -50,5 +65,9 @@
     "name": "чабани",
     "parentTypeId": "teawear",
     "imageSrc": "/images/shepherdTileImage.png"
+  },
+  {
+    "id": "accessories",
+    "name": "аксесуары"
   }
 ]
