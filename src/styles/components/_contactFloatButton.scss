@@ -1,0 +1,17 @@
+@use '../abstract/sizes';
+@use '../abstract/colors';
+
+.contact-float-button {
+  .ant-float-btn {
+    bottom: calc(sizes.$navigation-height + 20px);
+    right: 20px;
+  
+    .ant-float-btn-body {
+      background-color: colors.$secondary-400 !important;
+    }
+
+    .ant-float-btn-icon {
+      color: colors.$grey-50 !important;
+    }
+  }
+}

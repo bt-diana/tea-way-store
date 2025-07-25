@@ -2,6 +2,7 @@ import { useLayoutEffect } from 'react';
 import Footer from './Footer';
 import Navigation from './Navigation';
 import { Outlet, useLocation } from 'react-router-dom';
+import ContactFloatButton from './ContactFloatButton';
 
 const PageContent = () => {
   const { pathname } = useLocation();
@@ -23,6 +24,7 @@ const PageContent = () => {
         <Footer />
       </div>
       <Navigation bottom={true} />
+      <ContactFloatButton />
     </>
   );
 };
