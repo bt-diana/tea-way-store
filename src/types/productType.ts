@@ -2,6 +2,7 @@ export type ProductType = {
   id: string;
   name: string;
   description?: string;
+  imageSrc?: string;
   parentTypeId?: string;
 };
 

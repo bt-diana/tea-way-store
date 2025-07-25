@@ -18,5 +18,37 @@
     "id": "shu",
     "name": "шу пуэр",
     "parentTypeId": "puerh"
+  },
+  {
+    "id": "green",
+    "name": "зеленый",
+    "parentTypeId": "tea"
+  },
+  {
+    "id": "white",
+    "name": "белый",
+    "parentTypeId": "tea"
+  },
+  {
+    "id": "teawear",
+    "name": "посуда"
+  },
+  {
+    "id": "teapots",
+    "name": "чайники",
+    "parentTypeId": "teawear",
+    "imageSrc": "/images/teapotTileIamge.png"
+  },
+  {
+    "id": "bowls",
+    "name": "пиалы",
+    "parentTypeId": "teawear",
+    "imageSrc": "/images/bowlTileImage.png"
+  },
+  {
+    "id": "chabans",
+    "name": "чабани",
+    "parentTypeId": "teawear",
+    "imageSrc": "/images/shepherdTileImage.png"
   }
 ]
