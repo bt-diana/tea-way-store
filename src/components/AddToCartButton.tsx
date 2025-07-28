@@ -1,6 +1,7 @@
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import { useEffect } from 'react';
+import { cartKey } from '../constants/localStorageItemsKeys';
 
 type AddToCartButtonProps = {
   id: string;
@@ -19,15 +20,18 @@ const AddToCartButton = ({
 }: AddToCartButtonProps) => {
   useEffect(() => {
     if (amount >= 1) {
-      localStorage.setItem(
-        id,
-        JSON.stringify({
-          size: sizeId,
-          amount: amount,
-        })
-      );
+      const cart = JSON.parse(localStorage.getItem(cartKey)!) ?? {};
+      cart[id] = {
+        size: sizeId,
+        amount: amount,
+      };
+      localStorage.setItem(cartKey, JSON.stringify(cart));
     } else {
-      localStorage.removeItem(id);
+      const cart = JSON.parse(localStorage.getItem(cartKey)!);
+      if (cart) {
+        delete cart[id];
+        localStorage.setItem(cartKey, JSON.stringify(cart));
+      }
     }
   }, [id, amount, sizeId]);
 

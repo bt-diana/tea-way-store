@@ -8,6 +8,7 @@ import ProductTitle from './ProductTitle';
 import ProductDescription from './ProductDescription';
 import ProductSizes from './ProductSizes';
 import ProductPrice from './ProductPrice';
+import { cartKey } from '../constants/localStorageItemsKeys';
 
 type ProductCardProps = {
   product: Product;
@@ -16,17 +17,18 @@ type ProductCardProps = {
 };
 
 const ProductCard = ({ product, productPageView }: ProductCardProps) => {
+  const cart = JSON.parse(localStorage.getItem(cartKey)!);
+  const productInCart = cart?.[product.id];
+
   const getSizePriceById = (idToFind: string) =>
     product.sizesPrices.find(({ id }) => id === idToFind);
 
   const [size, setSize] = useState<ProductSizePrice>(() => {
-    const sizeId = JSON.parse(localStorage.getItem(product.id)!)?.size;
+    const sizeId = productInCart?.size;
     return (sizeId && getSizePriceById(sizeId)) || product.sizesPrices[0];
   });
 
-  const [amount, setAmount] = useState<number>(
-    JSON.parse(localStorage.getItem(product.id)!)?.amount ?? 0
-  );
+  const [amount, setAmount] = useState<number>(productInCart?.amount ?? 0);
 
   const [resultPrice, setResultPrice] = useState(size.price * (amount || 1));
 
