@@ -13,7 +13,6 @@
 @use 'components/logo';
 @use 'components/navigation';
 @use 'components/content';
-@use 'components/catalog';
 @use 'components/popUpMenu';
 @use 'components/languaguPicker';
 @use 'components/productCard';
@@ -21,6 +20,7 @@
 @use 'components/tile';
 @use 'components/tileGroup';
 @use 'components/articleCard';
-@use 'components/catalogTags';
-@use 'components/article';
 @use 'components/contactFloatButton';
+
+@use 'pages/catalogPage';
+@use 'pages/articlePage';

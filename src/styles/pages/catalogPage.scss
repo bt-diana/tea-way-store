@@ -16,3 +16,9 @@
     margin: unset;
   }
 }
+
+.catalog {
+  .ant-menu-title-content::first-letter {
+    text-transform: capitalize;
+  }
+}
