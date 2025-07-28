@@ -4,7 +4,7 @@ import { Image, Empty } from 'antd';
 type ProductCoverProps = {
   id: string;
   name: string;
-  cover: string;
+  cover?: string;
   productPageView?: boolean;
 };
 
