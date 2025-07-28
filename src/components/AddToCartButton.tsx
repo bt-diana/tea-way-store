@@ -9,6 +9,7 @@ type AddToCartButtonProps = {
   amount: number;
   add: () => void;
   remove: () => void;
+  cartView?: boolean;
 };
 
 const AddToCartButton = ({
@@ -17,6 +18,7 @@ const AddToCartButton = ({
   amount,
   add,
   remove,
+  cartView,
 }: AddToCartButtonProps) => {
   useEffect(() => {
     if (amount >= 1) {
@@ -40,7 +42,11 @@ const AddToCartButton = ({
       <div className="product-card-amount">
         <Button icon={<PlusOutlined />} onClick={add} />
         {amount}
-        <Button icon={<MinusOutlined />} onClick={remove} />
+        <Button
+          icon={<MinusOutlined />}
+          onClick={remove}
+          disabled={cartView && amount === 1}
+        />
       </div>
     );
   }

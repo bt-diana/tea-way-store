@@ -16,7 +16,11 @@ type ProductCardProps = {
   productPageView?: boolean;
 };
 
-const ProductCard = ({ product, productPageView }: ProductCardProps) => {
+const ProductCard = ({
+  product,
+  productPageView,
+  cartView,
+}: ProductCardProps) => {
   const cart = JSON.parse(localStorage.getItem(cartKey)!);
   const productInCart = cart?.[product.id];
 
@@ -68,21 +72,13 @@ const ProductCard = ({ product, productPageView }: ProductCardProps) => {
       }
       title={
         productPageView && (
-          <ProductTitle
-            id={product.id}
-            name={product.name}
-            productPageView={productPageView}
-          />
+          <ProductTitle id={product.id} name={product.name} productPageView />
         )
       }
       className={productPageView ? 'product' : 'product-card'}
     >
       {productPageView || (
-        <ProductTitle
-          id={product.id}
-          name={product.name}
-          productPageView={productPageView}
-        />
+        <ProductTitle id={product.id} name={product.name} cartView={cartView} />
       )}
       <ProductDescription product={product} productPageView={productPageView} />
       <ProductSizes
@@ -98,6 +94,7 @@ const ProductCard = ({ product, productPageView }: ProductCardProps) => {
           amount={amount}
           add={add}
           remove={remove}
+          cartView={cartView}
         />
       </div>
     </Card>
