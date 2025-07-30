@@ -67,10 +67,10 @@ const CartPage = () => {
         <Button
           type="primary"
           onClick={() => {
-            navigate('/order');
+            navigate('order');
           }}
         >
-          Оформит заказ
+          Перейти к оформлению
         </Button>
       </Section>
     </main>

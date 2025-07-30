@@ -25,7 +25,7 @@ const Router = () => {
           </Route>
           <Route path="cart">
             <Route index element={<CartPage />} />
-            <Route path="placing-order" element={<PlacingOrederPage />} />
+            <Route path="order" element={<PlacingOrederPage />} />
           </Route>
           <Route path="articles">
             <Route index element={<ArticlesListPage />} />
